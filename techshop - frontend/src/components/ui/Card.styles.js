@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaInfoCircle } from "react-icons/fa";
 
 export const CardDiv = styled.div`
   display: flex;
@@ -8,12 +9,45 @@ export const CardDiv = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding-top: 20px;
   justify-content: space-between;
+  cursor: pointer;
 
   img {
     margin-bottom: 11px;
     height: 136px;
     width: auto;
   }
+`;
+
+export const ShadowDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-top: -20px;
+
+  width: 259px;
+  height: 327px;
+
+  opacity: 0%;
+  transform: translateY(30px);
+  transform: translateX(-130px);
+  
+  cursor: pointer;
+  z-index: 9999;
+
+  &:hover {
+    opacity: 70%;
+    background-color: grey;
+    transition-duration: 0.4s;
+  }
+`;
+
+export const Cart = styled.div``;
+
+export const InfoIcon = styled(FaInfoCircle)`
+  width: 70px;
+  height: auto;
 `;
 
 export const Name = styled.div`
@@ -52,4 +86,5 @@ export const Price = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  font-size: 16px;
 `;

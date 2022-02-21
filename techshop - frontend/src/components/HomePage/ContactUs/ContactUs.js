@@ -11,11 +11,11 @@ import {
   Right,
   SubmitButton,
 } from "./ContactUs.styles";
-import ReactMap from './ReactMap'
+import ReactMap from "./ReactMap";
 
 const ContactUs = () => {
   return (
-    <Container>
+    <Container id="contact">
       <ContactBox>
         <Header src="./assets/Tech42Day/ProductHeaders/contactusheader.png" />
         <Left>
@@ -27,8 +27,7 @@ const ContactUs = () => {
         </Left>
       </ContactBox>
       <Right>
-          <ReactMap/>
-        
+        <ReactMap />
       </Right>
     </Container>
   );

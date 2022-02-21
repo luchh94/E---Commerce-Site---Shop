@@ -1,25 +1,19 @@
-import Header from "./components/Header/Header";
-import { Fragment } from "react";
 import GlobalStyle from "./GlobalStyle";
-import Hero from "./components/Hero/Hero";
-import Apple from "./components/Products/Apple/Apple";
-import Cameras from "./components/Products/Cameras/Camera";
-import MouseAndKeyboards from "./components/Products/MouseAndKeyboard/MouseAndKeyboard";
-import ContactUs from "./components/ContactUs/ContactUs";
+import Homepage from "./Pages/HomePage";
+import ProductPage from "./Pages/ProductPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <div>
       <GlobalStyle />
-
-      <Header />
-      <Hero />
-      <Apple />
-      <Cameras />
-      <MouseAndKeyboards />
-      <ContactUs />
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

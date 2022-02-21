@@ -1,32 +1,25 @@
 import React from "react";
-import {
-  CardDiv,
-  Name,
-  FullStars,
-  EmptyStars,
-  Price,
-  StarContainer,
-} from "./Card.styles";
-import { FaStar } from "react-icons/fa";
+
+import { CardDiv, ShadowDetail, Name, Price, InfoIcon } from "./Card.styles";
+
+import { Link } from "react-router-dom";
+import Rating from "./RatingHomePage/Rating";
 
 const Card = (props) => {
   return (
     <CardDiv>
+      <Link to={`/product/${props.id}`}>
+        <ShadowDetail>
+          <InfoIcon />
+          CLICK FOR MORE INFO
+        </ShadowDetail>
+      </Link>
+
       <img src={props.image} alt="/" />
       <Name>{props.name}</Name>
-      <StarContainer>
-        <FullStars>
-          {[...Array(5)].map((element) => (
-            <FaStar />
-          ))}
-        </FullStars>
-        <EmptyStars>
-          {[...Array(5)].map((element) => (
-            <FaStar />
-          ))}
-        </EmptyStars>
-      </StarContainer>
-      <Price>{props.price}</Price>
+      <Rating rating={props.rating} color='red' />
+
+      <Price>{`$${props.price}`}</Price>
     </CardDiv>
   );
 };

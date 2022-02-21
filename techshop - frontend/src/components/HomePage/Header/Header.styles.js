@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsFilePerson } from "react-icons/bs";
+import ProductMenu from "./ProductMenu";
+import { Link } from "react-router-dom";
 
 ///////////// GENERAL HEADER ///////////////
 
@@ -23,21 +25,66 @@ export const Navbar = styled.nav`
 export const ContainerOne = styled.div`
   display: flex;
   list-style-type: none;
-  width: 560px;
+  width: 450px;
+  margin-right: 110px;
+  padding: 20px 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  > a {
+    text-decoration-line: none;
+    color: black;
+  }
 `;
 
 export const LinkElement = styled.a`
+  display: flex;
+  justify-content: space-around;
   text-decoration: none;
   font-size: 14px;
   color: black;
-  margin-right: 59px;
   border: 1px;
 `;
 
 export const ListElement = styled.li`
   text-transform: uppercase;
   font-family: "Source Sans 3", sans-serif;
+
   font-size: 18px;
+
+  &:before {
+    content: "";
+
+    height: 5px;
+    width: 120px;
+
+    background-color: black;
+    position: absolute;
+    transform: translateY(40px);
+    opacity: 0%;
+    -webkit-transition: all 5ms;
+    transition: all 5ms;
+  }
+
+  &:hover:before {
+    height: 5px;
+    width: 70px;
+
+    opacity: 20%;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+  }
+`;
+
+export const ProductElement = styled.li`
+  text-transform: uppercase;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 18px;
+
+  &:before {
+    content: ${ProductMenu};
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 ///////////// LOGO ///////////////
@@ -54,6 +101,8 @@ export const Logo = styled.img`
 export const ContainerThree = styled.div`
   width: 560px;
   display: flex;
+  justify-content: space-around;
+  margin-left: 60px;
 `;
 
 export const SearchbarInput = styled.input`
@@ -99,16 +148,15 @@ export const IconsContainer = styled.div`
   align-items: center;
 `;
 
-export const ProfileAnchor = styled.a`
+export const ProfileAnchor = styled(Link)`
   margin-left: 30px;
   width: 30px;
 `;
 
-export const CartAnchor = styled.a``;
+export const CartAnchor = styled(Link)``;
 
 export const ProfileIcon = styled(BsFilePerson)`
   margin-right: 15px;
-
   width: 35px;
   height: auto;
   color: black;

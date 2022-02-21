@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef} from "react";
-import mapboxgl, { } from "mapbox-gl";
+import React, { useEffect, useRef } from "react";
+import mapboxgl from "mapbox-gl";
 import { MapContainer } from "./ReactMap.styles";
 
 mapboxgl.accessToken =
@@ -8,9 +8,9 @@ mapboxgl.accessToken =
 const ReactMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(9.989);
-  const [lat, setLat] = useState(53.5483);
-  const [zoom, setZoom] = useState(15);
+  const lng = 9.989;
+  const lat = 53.5483;
+  const zoom = 15;
 
   useEffect(() => {
     if (map.current) return;

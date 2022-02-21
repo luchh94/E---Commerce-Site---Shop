@@ -1,31 +1,33 @@
 import React from "react";
+import Card from "../../../Ui/Card";
 import {
   Container,
   Title,
   Products,
   ProductHeader,
   UnderLine,
-  CameraHeader,
-} from "./Camera.styles";
-import Card from "../../ui/Card";
-import cameraProducts from "./CameraProducts";
+  MouseAndKeyboardHeader,
+} from "./MouseAndKeyboard.styles";
+import mouseAndKeyboards from "./MouseAndKeyboardProducts";
 
-const Camera = () => {
+const MouseAndKeyboard = () => {
   return (
-    <Container>
+    <Container id="mouseandkeyboard">
       <Title>
         <ProductHeader>
-          <CameraHeader src="./assets/Tech42Day/ProductHeaders/CamerasHeader.png" />
+          <MouseAndKeyboardHeader src="./assets/Tech42Day/ProductHeaders/mouseandkeyboards.png" />
           <UnderLine src="./images/underline.png" />
         </ProductHeader>
       </Title>
       <Products>
-        {cameraProducts.map((product) => (
+        {mouseAndKeyboards.map((product) => (
           <Card
+            key={product.id}
             image={product.image}
             name={product.name}
             rating={product.rating}
             price={product.price}
+            id={product.id}
           />
         ))}
       </Products>
@@ -33,4 +35,4 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default MouseAndKeyboard;

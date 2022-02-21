@@ -2,7 +2,7 @@
 
 const mouseAndKeyboards = [
     {
-        id: 1,
+        id: 7,
         name: 'Chrome Keyboard - Mechanical',
         image: "./assets/Tech42Day/ProductPictures/MechKeyboards/colorKeyboard.jpg",
         description: 'A super nice looking Colorful Keyboard',
@@ -14,7 +14,7 @@ const mouseAndKeyboards = [
         numReviews: 5
     },
     {
-        id: 2,
+        id: 8,
         name: 'RGB - Mechanical Keyboard',
         image: "./assets/Tech42Day/ProductPictures/MechKeyboards/RGBKeyboard.webp",
         description: 'A super nice looking RGB Keyboard',
@@ -26,7 +26,7 @@ const mouseAndKeyboards = [
         numReviews: 6,
     },
     {
-        id: 3,
+        id: 9,
         name: 'Keychron - K6',
         image: "./assets/Tech42Day/ProductPictures/MechKeyboards/keychron.webp",
         description: 'A Keychron keyboard with red Switches',
@@ -38,7 +38,7 @@ const mouseAndKeyboards = [
         numReviews: 14,
     },
     {
-        id: 4,
+        id: 10,
         name: 'Razer Deathadder',
         image: "./assets/Tech42Day/ProductPictures/GamingMices/razerdeathadder.jpg",
         description: 'A Mouse that will improve your aim alot',
@@ -50,7 +50,7 @@ const mouseAndKeyboards = [
         numReviews: 80
     },
     {
-        id: 5,
+        id: 11,
         name: 'Logitech G Pro',
         image: "./assets/Tech42Day/ProductPictures/GamingMices/Logitech.jpg",
         description: 'The Logitech will turn you into a pro with their Hero Sensor',
@@ -62,7 +62,7 @@ const mouseAndKeyboards = [
         numReviews: 23
     },
     {
-        id: 6,
+        id: 12,
         name: 'Steelseries x3',
         image: "./assets/Tech42Day/ProductPictures/GamingMices/steelseries.jpg",
         description: 'The Steelseries x3 will make you hard as steel',
