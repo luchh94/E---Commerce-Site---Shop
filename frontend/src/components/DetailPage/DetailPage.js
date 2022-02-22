@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Rating from "../Ui/RatingDetailPage/RatingDetail";
 
 import {
@@ -9,16 +10,21 @@ import {
   PriceAndRating,
   Description,
   CartButton,
-  RatingContainer
+  RatingContainer,
 } from "./DetailPage.styles";
-import AllProducts from "../../AllProducts";
 
-const DetailPage = (props) => {
-  const products = AllProducts;
-  let id = props.id;
+const DetailPage = ( props) => {
+  const [product, setProducts] = useState([]);
 
-  let product = products.find((e) => e.id == id);
-  console.log(product);
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(`/api/product/${props.id}`);
+
+      setProducts(data);
+    };
+    getData();
+  }, []);
+
 
   return (
     <Container>
@@ -34,7 +40,9 @@ const DetailPage = (props) => {
           <p>${product.price}</p>
           <RatingContainer>
             <Rating rating={product.rating} detail />
-            <p>{product.rating} / {product.numReviews} Ratings</p>
+            <p>
+              {product.rating} / {product.numReviews} Ratings
+            </p>
           </RatingContainer>
         </PriceAndRating>
         <Description>{product.description}</Description>

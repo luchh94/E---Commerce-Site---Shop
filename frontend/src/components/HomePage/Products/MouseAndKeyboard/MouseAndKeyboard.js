@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Card from "../../../Ui/Card";
 import {
   Container,
@@ -8,9 +9,20 @@ import {
   UnderLine,
   MouseAndKeyboardHeader,
 } from "./MouseAndKeyboard.styles";
-import mouseAndKeyboards from "./MouseAndKeyboardProducts";
+
 
 const MouseAndKeyboard = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get("/api/mouseandkeyboards");
+      setProducts(data);
+    };
+
+    getData();
+  }, []);
+
   return (
     <Container id="mouseandkeyboard">
       <Title>
@@ -20,7 +32,7 @@ const MouseAndKeyboard = () => {
         </ProductHeader>
       </Title>
       <Products>
-        {mouseAndKeyboards.map((product) => (
+        {products.map((product) => (
           <Card
             key={product.id}
             image={product.image}

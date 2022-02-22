@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Title,
   Products,
   ProductHeader,
   UnderLine,
-  CameraHeader,
-} from "./Camera.styles";
+  AppleHeader,
+} from "./Apple.styles";
 import Card from "../../../Ui/Card";
-import cameraProducts from "./CameraProducts";
+import axios from 'axios'
 
-const Camera = () => {
+const Apple = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get("/api/appleproducts");
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
-    <Container id="camera">
+    <Container id="apple">
       <Title>
         <ProductHeader>
-          <CameraHeader src="./assets/Tech42Day/ProductHeaders/CamerasHeader.png" />
+          <AppleHeader src="./assets/Tech42Day/ProductHeaders/AppleHeader.png" />
           <UnderLine src="./images/underline.png" />
         </ProductHeader>
       </Title>
       <Products>
-        {cameraProducts.map((product) => (
+        {products.map((product) => (
           <Card
             key={product.id}
             image={product.image}
@@ -35,4 +45,4 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default Apple;
