@@ -16,8 +16,9 @@ const Camera = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get("/api/cameraproducts");
-      setProducts(data);
+      const { data } = await axios.get("/api/products/");
+      const filteredData = data.filter((e) => e.category === "Camera");
+      setProducts(filteredData);
     };
     getData();
   }, []);
@@ -38,7 +39,7 @@ const Camera = () => {
             name={product.name}
             rating={product.rating}
             price={product.price}
-            id={product.id}
+            id={product._id}
           />
         ))}
       </Products>

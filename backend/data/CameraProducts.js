@@ -1,6 +1,5 @@
 const CameraProducts = [
   {
-    id: 5,
     name: "Canon EOS - R5",
     image: "/assets/Tech42Day/ProductPictures/CanonCameras/eosr5.jpg",
     description: "A Camera that is super cool that takes super cool pictures",
@@ -12,7 +11,6 @@ const CameraProducts = [
     numReviews: 10,
   },
   {
-    id: 6,
     name: "NIKON D - 5600",
     image: "/assets/Tech42Day/ProductPictures/CanonCameras/nikoncamera.jpg",
     description: "A Camera that is super cool that takes super cool pictures",
@@ -25,4 +23,4 @@ const CameraProducts = [
   },
 ];
 
-module.exports = CameraProducts;
+export default CameraProducts;

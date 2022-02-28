@@ -13,18 +13,17 @@ import {
   RatingContainer,
 } from "./DetailPage.styles";
 
-const DetailPage = ( props) => {
+const DetailPage = (props) => {
   const [product, setProducts] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get(`/api/product/${props.id}`);
+      const { data } = await axios.get(`/api/products/${props.id}`);
 
       setProducts(data);
     };
     getData();
-  }, []);
-
+  }, [props._id]);
 
   return (
     <Container>

@@ -8,7 +8,7 @@ import Rating from "./RatingHomePage/Rating";
 const Card = (props) => {
   return (
     <CardDiv>
-      <Link to={`/product/${props.id}`}>
+      <Link to={`/products/${props.id}`}>
         <ShadowDetail>
           <InfoIcon />
           CLICK FOR MORE INFO

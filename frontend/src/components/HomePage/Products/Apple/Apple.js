@@ -8,15 +8,17 @@ import {
   AppleHeader,
 } from "./Apple.styles";
 import Card from "../../../Ui/Card";
-import axios from 'axios'
+import axios from "axios";
 
 const Apple = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data } = await axios.get("/api/appleproducts");
-      setProducts(data);
+      const { data } = await axios.get("/api/products");
+      const appleProducts = data.filter((e) => e.brand === "apple");
+      console.log(appleProducts);
+      setProducts(appleProducts);
     };
     fetchProducts();
   }, []);
@@ -37,7 +39,7 @@ const Apple = () => {
             name={product.name}
             rating={product.rating}
             price={product.price}
-            id={product.id}
+            id={product._id}
           />
         ))}
       </Products>

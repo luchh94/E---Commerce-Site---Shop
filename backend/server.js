@@ -1,30 +1,27 @@
-const express = require("express");
-const AllProducts = require("./data/AllProducts");
-const AppleProducts = require("./data/AppleProducts");
-const CameraProducts = require("./data/CameraProducts");
-const MouseAndKeyboardProducts = require("./data/MouseAndKeyboardProducts");
+import express from "express";
+import dotenv from "dotenv";
+
+import connectDB from "./config/db.js";
+import { errorHandler, notFound } from "./middleware/ErrorMiddleware.js";
+
+import productRouter from "./routes/ProductRoutes.js";
+
+dotenv.config();
+
+connectDB();
 
 const app = express();
 
-app.get("/api/products", (req, res) => {
-  res.json(AllProducts);
-});
+app.use("/api/products", productRouter);
+app.use(notFound);
 
-app.get("/api/product/:id", (req, res) => {
-  const product = AllProducts.find((p) => p.id == req.params.id);
-  res.json(product);
-});
+app.use(errorHandler);
 
-app.get("/api/appleproducts", (req, res) => {
-  res.json(AppleProducts);
-});
+const PORT = process.env.PORT || 4000;
 
-app.get("/api/cameraproducts", (req, res) => {
-  res.json(CameraProducts);
-});
-
-app.get("/api/mouseandkeyboards", (req, res) => {
-  res.json(MouseAndKeyboardProducts);
-});
-
-app.listen(4000, console.log("Server running on port 4000"));
+app.listen(
+  PORT,
+  console.log(
+    `Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`
+  )
+);

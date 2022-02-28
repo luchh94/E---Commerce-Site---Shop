@@ -1,6 +1,5 @@
 const AppleProducts = [
   {
-    id: 1,
     name: "Apple Watch - 3rd Generation",
     image: "/images/appleImages/applewatch.jpg",
     description:
@@ -13,7 +12,6 @@ const AppleProducts = [
     numReviews: 26,
   },
   {
-    id: 2,
     name: "Apple Ipad - 2nd Generation",
     image: "/images/appleImages/ipad.jpg",
     description: "A super fancy and cool looking ipad that will boost your ego",
@@ -25,7 +23,6 @@ const AppleProducts = [
     numReviews: 20,
   },
   {
-    id: 3,
     name: "Apple Iphone 13 Pro",
     image: "/images/appleImages/iphone.jpg",
     description:
@@ -38,7 +35,6 @@ const AppleProducts = [
     numReviews: 49,
   },
   {
-    id: 4,
     name: "Apple Keyboard",
     image: "/images/appleImages/keyboard.jpg",
     description:
@@ -52,4 +48,4 @@ const AppleProducts = [
   },
 ];
 
-module.exports = AppleProducts;
+export default AppleProducts;

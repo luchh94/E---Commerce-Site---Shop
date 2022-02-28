@@ -1,6 +1,5 @@
 const AllProducts = [
   {
-    id: 1,
     name: "Apple Watch - 3rd Generation",
     image: "/images/appleImages/applewatch.jpg",
     description:
@@ -13,7 +12,6 @@ const AllProducts = [
     numReviews: 26,
   },
   {
-    id: 2,
     name: "Apple Ipad - 2nd Generation",
     image: "/images/appleImages/ipad.jpg",
     description: "A super fancy and cool looking ipad that will boost your ego",
@@ -25,7 +23,6 @@ const AllProducts = [
     numReviews: 20,
   },
   {
-    id: 3,
     name: "Apple Iphone 13 Pro",
     image: "/images/appleImages/iphone.jpg",
     description:
@@ -38,7 +35,6 @@ const AllProducts = [
     numReviews: 49,
   },
   {
-    id: 4,
     name: "Apple Keyboard",
     image: "/images/appleImages/keyboard.jpg",
     description:
@@ -51,7 +47,6 @@ const AllProducts = [
     numReviews: 4,
   },
   {
-    id: 5,
     name: "Canon EOS - R5",
     image: "/assets/Tech42Day/ProductPictures/CanonCameras/eosr5.jpg",
     description: "A Camera that is super cool that takes super cool pictures",
@@ -63,7 +58,6 @@ const AllProducts = [
     numReviews: 10,
   },
   {
-    id: 6,
     name: "NIKON D - 5600",
     image: "/assets/Tech42Day/ProductPictures/CanonCameras/nikoncamera.jpg",
     description: "A Camera that is super cool that takes super cool pictures",
@@ -75,7 +69,6 @@ const AllProducts = [
     numReviews: 14,
   },
   {
-    id: 7,
     name: "Chrome Keyboard - Mechanical",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/colorKeyboard.jpg",
     description: "A super nice looking Colorful Keyboard",
@@ -87,7 +80,6 @@ const AllProducts = [
     numReviews: 5,
   },
   {
-    id: 8,
     name: "RGB - Mechanical Keyboard",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/RGBKeyboard.webp",
     description: "A super nice looking RGB Keyboard",
@@ -99,7 +91,6 @@ const AllProducts = [
     numReviews: 6,
   },
   {
-    id: 9,
     name: "Keychron - K6",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/keychron.webp",
     description: "A Keychron keyboard with red Switches",
@@ -111,7 +102,6 @@ const AllProducts = [
     numReviews: 14,
   },
   {
-    id: 10,
     name: "Razer Deathadder",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/razerdeathadder.jpg",
     description: "A Mouse that will improve your aim alot",
@@ -123,7 +113,6 @@ const AllProducts = [
     numReviews: 80,
   },
   {
-    id: 11,
     name: "Logitech G Pro",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/Logitech.jpg",
     description: "The Logitech will turn you into a pro with their Hero Sensor",
@@ -135,7 +124,6 @@ const AllProducts = [
     numReviews: 23,
   },
   {
-    id: 12,
     name: "Steelseries x3",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/steelseries.jpg",
     description: "The Steelseries x3 will make you hard as steel",
@@ -148,4 +136,4 @@ const AllProducts = [
   },
 ];
 
-module.exports = AllProducts;
+export default AllProducts;

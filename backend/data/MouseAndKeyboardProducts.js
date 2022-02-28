@@ -1,6 +1,5 @@
 const MouseAndKeyboardProducts = [
   {
-    id: 7,
     name: "Chrome Keyboard - Mechanical",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/colorKeyboard.jpg",
     description: "A super nice looking Colorful Keyboard",
@@ -12,7 +11,6 @@ const MouseAndKeyboardProducts = [
     numReviews: 5,
   },
   {
-    id: 8,
     name: "RGB - Mechanical Keyboard",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/RGBKeyboard.webp",
     description: "A super nice looking RGB Keyboard",
@@ -24,7 +22,6 @@ const MouseAndKeyboardProducts = [
     numReviews: 6,
   },
   {
-    id: 9,
     name: "Keychron - K6",
     image: "/assets/Tech42Day/ProductPictures/MechKeyboards/keychron.webp",
     description: "A Keychron keyboard with red Switches",
@@ -36,7 +33,6 @@ const MouseAndKeyboardProducts = [
     numReviews: 14,
   },
   {
-    id: 10,
     name: "Razer Deathadder",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/razerdeathadder.jpg",
     description: "A Mouse that will improve your aim alot",
@@ -48,7 +44,6 @@ const MouseAndKeyboardProducts = [
     numReviews: 80,
   },
   {
-    id: 11,
     name: "Logitech G Pro",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/Logitech.jpg",
     description: "The Logitech will turn you into a pro with their Hero Sensor",
@@ -60,7 +55,6 @@ const MouseAndKeyboardProducts = [
     numReviews: 23,
   },
   {
-    id: 12,
     name: "Steelseries x3",
     image: "/assets/Tech42Day/ProductPictures/GamingMices/steelseries.jpg",
     description: "The Steelseries x3 will make you hard as steel",
@@ -73,4 +67,4 @@ const MouseAndKeyboardProducts = [
   },
 ];
 
-module.exports = MouseAndKeyboardProducts;
+export default MouseAndKeyboardProducts;

@@ -10,14 +10,16 @@ import {
   MouseAndKeyboardHeader,
 } from "./MouseAndKeyboard.styles";
 
-
 const MouseAndKeyboard = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get("/api/mouseandkeyboards");
-      setProducts(data);
+      const { data } = await axios.get("/api/products/");
+      const filteredData = data.filter(
+        (e) => e.category === "keyboard" || e.category === "mouse"
+      );
+      setProducts(filteredData);
     };
 
     getData();
@@ -39,7 +41,7 @@ const MouseAndKeyboard = () => {
             name={product.name}
             rating={product.rating}
             price={product.price}
-            id={product.id}
+            id={product._id}
           />
         ))}
       </Products>
