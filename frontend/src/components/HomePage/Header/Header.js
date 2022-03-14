@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import logo from "./logo.jpg";
 import IconSearch from "./search_png.png";
 import ProductMenu from "./ProductMenu";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 import {
   ContainerOne,
@@ -27,14 +28,15 @@ import {
 } from "./Header.styles.js";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
 
   const menuHandler = (event) => {
     event.preventDefault();
-    if (open === false) {
-      setOpen(!false);
+    if (isOpen === false) {
+      setIsOpen(!false);
     } else {
-      setOpen(false);
+      setIsOpen(false);
     }
   };
 
@@ -49,7 +51,7 @@ const Header = () => {
           </LinkElement>
           <LinkElement href="/" onClick={menuHandler}>
             <ListElement>products</ListElement>
-            {open && <ProductMenu />}
+            {isOpen && <ProductMenu ref={menuRef} />}
           </LinkElement>
 
           <HashLink to="/#contact" spy={true} smooth={true}>
@@ -77,9 +79,11 @@ const Header = () => {
           {/* Icons*/}
 
           <IconsContainer>
-            <CartAnchor to="/cart">
-              <CartIcon />
-            </CartAnchor>
+            <Link to='/cart'>
+              <CartAnchor to="/cart">
+                <CartIcon />
+              </CartAnchor>
+            </Link>
             <ProfileAnchor to="/profile">
               <ProfileIcon />
             </ProfileAnchor>

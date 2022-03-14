@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../../../redux/actions/productActions";
 import {
   Container,
   Title,
@@ -8,20 +10,19 @@ import {
   AppleHeader,
 } from "./Apple.styles";
 import Card from "../../../Ui/Card";
-import axios from "axios";
+import Loading from "../../../Ui/Loading";
 
 const Apple = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, products, error } = productList;
+
+  const appleProducts = products.filter((e) => e.brand === "apple");
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get("/api/products");
-      const appleProducts = data.filter((e) => e.brand === "apple");
-      console.log(appleProducts);
-      setProducts(appleProducts);
-    };
-    fetchProducts();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <Container id="apple">
@@ -32,16 +33,22 @@ const Apple = () => {
         </ProductHeader>
       </Title>
       <Products>
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            rating={product.rating}
-            price={product.price}
-            id={product._id}
-          />
-        ))}
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          <h3>{error}</h3>
+        ) : (
+          appleProducts.map((product) => (
+            <Card
+              key={product.id}
+              image={product.image}
+              name={product.name}
+              rating={product.rating}
+              price={product.price}
+              id={product._id}
+            />
+          ))
+        )}
       </Products>
     </Container>
   );

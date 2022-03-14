@@ -94,3 +94,26 @@ export const CartButton = styled.button`
   margin-top: 70px;
   font-weight: bold;
 `;
+
+export const InStock = styled.div`
+  display: flex;
+  width: 300px;
+  margin: 0 0;
+  margin-left: 100px;
+  margin-top: 30px;
+align-items: center;
+  > p {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+  > form {
+    width: 60px;
+    height: 30px;
+
+    > select {
+      width: 70px;
+      height: 35px;
+    }
+  }
+
+`;

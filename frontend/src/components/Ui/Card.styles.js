@@ -37,7 +37,7 @@ export const ShadowDetail = styled.div`
   z-index: 9999;
 
   &:hover {
-    opacity: 70%;
+    opacity: 80%;
     background-color: grey;
     transition-duration: 0.4s;
   }
@@ -48,6 +48,7 @@ export const Cart = styled.div``;
 export const InfoIcon = styled(FaInfoCircle)`
   width: 70px;
   height: auto;
+  margin-bottom: 65px;
 `;
 
 export const Name = styled.div`

@@ -33,6 +33,8 @@ export const List = styled.ul`
   > a {
     text-decoration-line: none;
     color: black;
+    width: 200px;
+    height: 30px;
   }
 `;
 

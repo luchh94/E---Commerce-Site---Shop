@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Rating from "../Ui/RatingDetailPage/RatingDetail";
+import { useDispatch, useSelector } from "react-redux";
+import { listProductDetail } from "../../redux/actions/productActions";
+import { useNavigate } from "react-router-dom";
 
 import {
   Container,
@@ -11,19 +13,27 @@ import {
   Description,
   CartButton,
   RatingContainer,
+  InStock,
 } from "./DetailPage.styles";
 
 const DetailPage = (props) => {
-  const [product, setProducts] = useState([]);
+  const history = useNavigate();
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.productDetail);
+  const { product } = productDetails;
 
   useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(`/api/products/${props.id}`);
+    dispatch(listProductDetail(props.id));
+  }, [dispatch, props.id]);
 
-      setProducts(data);
-    };
-    getData();
-  }, [props._id]);
+  const arrayKeys = [...Array(product.countInStock).keys()];
+
+  const addToCartHandler = () => {
+    console.log("hello");
+    history(`/cart/${props.id}?${qty}`);
+    console.log(qty);
+  };
 
   return (
     <Container>
@@ -45,7 +55,16 @@ const DetailPage = (props) => {
           </RatingContainer>
         </PriceAndRating>
         <Description>{product.description}</Description>
-        <CartButton>ADD TO CART</CartButton>
+        <InStock>
+          <h2>In Stock: </h2>
+          <p> {product.countInStock}</p>
+          <select type="select" onChange={(e) => setQty(e.target.value)}>
+            {arrayKeys.map((e) => (
+              <option value={e + 1}>{e + 1}</option>
+            ))}
+          </select>
+        </InStock>
+        <CartButton onClick={addToCartHandler}>ADD TO CART</CartButton>
       </RightContainer>
     </Container>
   );

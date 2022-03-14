@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../../../redux/actions/productActions";
 import {
   Container,
   Title,
@@ -8,20 +10,18 @@ import {
   CameraHeader,
 } from "./Camera.styles";
 import Card from "../../../Ui/Card";
-
-import axios from "axios";
+import Loading from "../../../Ui/Loading";
 
 const Camera = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { products, error, loading } = productList;
+
+  const filteredProducts = products.filter((e) => e.category === "Camera");
 
   useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get("/api/products/");
-      const filteredData = data.filter((e) => e.category === "Camera");
-      setProducts(filteredData);
-    };
-    getData();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <Container id="camera">
@@ -32,16 +32,22 @@ const Camera = () => {
         </ProductHeader>
       </Title>
       <Products>
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            rating={product.rating}
-            price={product.price}
-            id={product._id}
-          />
-        ))}
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          error.message
+        ) : (
+          filteredProducts.map((product) => (
+            <Card
+              key={product.id}
+              image={product.image}
+              name={product.name}
+              rating={product.rating}
+              price={product.price}
+              id={product._id}
+            />
+          ))
+        )}
       </Products>
     </Container>
   );

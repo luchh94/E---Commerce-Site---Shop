@@ -28,8 +28,7 @@ export const ContainerOne = styled.div`
   width: 450px;
   margin-right: 110px;
   padding: 20px 10px;
-
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-right: 1px solid;
   > a {
     text-decoration-line: none;
     color: black;

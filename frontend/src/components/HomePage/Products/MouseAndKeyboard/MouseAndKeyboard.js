@@ -1,5 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../../../redux/actions/productActions";
+import React, { useEffect } from "react";
 import Card from "../../../Ui/Card";
 import {
   Container,
@@ -9,21 +10,20 @@ import {
   UnderLine,
   MouseAndKeyboardHeader,
 } from "./MouseAndKeyboard.styles";
+import Loading from "../../../Ui/Loading";
 
 const MouseAndKeyboard = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { products, loading, error } = productList;
 
   useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get("/api/products/");
-      const filteredData = data.filter(
-        (e) => e.category === "keyboard" || e.category === "mouse"
-      );
-      setProducts(filteredData);
-    };
+    dispatch(listProducts());
+  }, [dispatch]);
 
-    getData();
-  }, []);
+  const filteredData = products.filter(
+    (e) => e.category === "keyboard" || e.category === "mouse"
+  );
 
   return (
     <Container id="mouseandkeyboard">
@@ -34,16 +34,22 @@ const MouseAndKeyboard = () => {
         </ProductHeader>
       </Title>
       <Products>
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            rating={product.rating}
-            price={product.price}
-            id={product._id}
-          />
-        ))}
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          error.message
+        ) : (
+          filteredData.map((product) => (
+            <Card
+              key={product.id}
+              image={product.image}
+              name={product.name}
+              rating={product.rating}
+              price={product.price}
+              id={product._id}
+            />
+          ))
+        )}
       </Products>
     </Container>
   );

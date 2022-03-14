@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
+  margin-bottom: 100px;
   display: flex;
   flex-direction: row;
   width: 1440px;
   height: 600px;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
 
 export const ContactBox = styled.div`
-  border-right: 2px solid;
+  border-right: 1px solid;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -47,7 +45,7 @@ export const Right = styled.div`
 `;
 
 export const Header = styled.img`
-  height: 38px;
+  height: 25px;
   width: auto;
   margin-top: 70px;
   margin-bottom: 40px;
@@ -79,7 +77,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const SubmitButton = styled.button`
-    margin-top: 10px;
+  margin-top: 10px;
   width: 100%;
   padding: 0.7rem 1rem;
   background-color: #2ecc71;

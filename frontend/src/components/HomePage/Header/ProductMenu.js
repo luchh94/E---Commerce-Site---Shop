@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import {
   MenuContainer,
   ListContainer,
@@ -9,6 +10,8 @@ import {
 import { HashLink } from "react-router-hash-link";
 
 const ProductMenu = (props) => {
+
+
   return (
     <MenuContainer>
       <ListContainer>
