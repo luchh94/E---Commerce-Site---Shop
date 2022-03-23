@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import logo from "./logo.jpg";
 import IconSearch from "./search_png.png";
 import ProductMenu from "./ProductMenu";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import MyDropdown from "./ProfileMenu";
 
 import {
   ContainerOne,
@@ -25,11 +27,17 @@ import {
   CartAnchor,
   CartIcon,
   LinkElement,
+  LoginIcon,
+  SignInLink,
+  ProfileIconLink,
 } from "./Header.styles.js";
+import Example from "./ProfileMenu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const menuRef = useRef();
+  const { userInfo } = useSelector((state) => state.userLogin);
 
   const menuHandler = (event) => {
     event.preventDefault();
@@ -39,6 +47,8 @@ const Header = () => {
       setIsOpen(false);
     }
   };
+
+  const userLoggedIn = localStorage.getItem("userData");
 
   return (
     <HeaderDiv>
@@ -79,13 +89,17 @@ const Header = () => {
           {/* Icons*/}
 
           <IconsContainer>
-            <Link to='/cart'>
+            <Link to="/cart">
               <CartAnchor to="/cart">
                 <CartIcon />
               </CartAnchor>
             </Link>
-            <ProfileAnchor to="/profile">
-              <ProfileIcon />
+            <ProfileAnchor>
+              {userLoggedIn ? (
+                <MyDropdown />
+              ) : (
+                <SignInLink to="/signin">SIGN IN</SignInLink>
+              )}
             </ProfileAnchor>
           </IconsContainer>
         </ContainerThree>

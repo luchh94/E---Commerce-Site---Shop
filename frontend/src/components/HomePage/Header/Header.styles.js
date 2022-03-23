@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsFilePerson } from "react-icons/bs";
+import { CgLogIn } from "react-icons/cg";
 import ProductMenu from "./ProductMenu";
 import { Link } from "react-router-dom";
 
@@ -147,14 +148,37 @@ export const IconsContainer = styled.div`
   align-items: center;
 `;
 
-export const ProfileAnchor = styled(Link)`
+export const ProfileAnchor = styled.div`
+  text-decoration: none;
   margin-left: 30px;
-  width: 30px;
+  min-width: 30px;
+`;
+
+export const SignInLink = styled(Link)`
+  font-size: 18px;
+  text-decoration: none;
+
+  font-family: "Source Sans 3", sans-serif;
+  color: black;
+  font-weight: normal;
+  border: 1px solid black;
+  padding: 2px 10px;
 `;
 
 export const CartAnchor = styled(Link)``;
 
 export const ProfileIcon = styled(BsFilePerson)`
+  margin-right: 15px;
+  width: 35px;
+  height: auto;
+  color: black;
+`;
+
+export const ProfileIconLink = styled.a`
+  cursor: pointer;
+`;
+
+export const LoginIcon = styled(CgLogIn)`
   margin-right: 15px;
   width: 35px;
   height: auto;
