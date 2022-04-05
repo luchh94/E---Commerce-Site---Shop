@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsFilePerson } from "react-icons/bs";
-import { CgLogIn } from "react-icons/cg";
+
 import ProductMenu from "./ProductMenu";
 import { Link } from "react-router-dom";
 
@@ -9,27 +8,27 @@ import { Link } from "react-router-dom";
 
 export const HeaderDiv = styled.header`
   display: flex;
-
-  height: 220px;
-  width: 1440px;
+  justify-content: center;
+  max-height: 250px;
+  width: 100%;
 `;
 
 export const Navbar = styled.nav`
-  display: flex;
-  height: 254px;
-  width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-areas: "item1 item2 item3";
+  height: 200px;
+  width: 100%;
   align-items: center;
 `;
 
 //////////// LIST /////////////
 
 export const ContainerOne = styled.div`
+  grid-area: item1;
   display: flex;
   list-style-type: none;
-  width: 450px;
-  margin-right: 110px;
-  padding: 20px 10px;
-  border-right: 1px solid;
+  width: 100%;
   > a {
     text-decoration-line: none;
     color: black;
@@ -40,7 +39,7 @@ export const LinkElement = styled.a`
   display: flex;
   justify-content: space-around;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1rem;
   color: black;
   border: 1px;
 `;
@@ -49,13 +48,13 @@ export const ListElement = styled.li`
   text-transform: uppercase;
   font-family: "Source Sans 3", sans-serif;
 
-  font-size: 18px;
+  font-size: 1.1rem;
 
   &:before {
     content: "";
 
-    height: 5px;
-    width: 120px;
+    height: 0.25rem;
+    width: 5rem;
 
     background-color: black;
     position: absolute;
@@ -66,8 +65,8 @@ export const ListElement = styled.li`
   }
 
   &:hover:before {
-    height: 5px;
-    width: 70px;
+    height: 0.25rem;
+    width: 5%;
 
     opacity: 20%;
     -webkit-transition: all 0.1s;
@@ -78,31 +77,36 @@ export const ListElement = styled.li`
 export const ProductElement = styled.li`
   text-transform: uppercase;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
 
   &:before {
     content: ${ProductMenu};
-    width: 200px;
-    height: 200px;
+    width: 500%;
+    height: auto;
   }
 `;
 
 ///////////// LOGO ///////////////
 
-export const ContainerTwo = styled.div``;
+export const ContainerTwo = styled.div`
+  grid-area: item2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Logo = styled.img`
-  height: 50px;
-  width: auto;
+  height: auto;
+  width: 85%;
 `;
 
 ///////////// SEARCHBAR ///////////////
 
 export const ContainerThree = styled.div`
-  width: 560px;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 60px;
+  grid-area: item3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 export const SearchbarInput = styled.input`
@@ -111,15 +115,15 @@ export const SearchbarInput = styled.input`
   outline: none;
   font-size: 14px;
   transition: 0.4s;
-  width: 200px;
+  width: 300%;
 `;
 export const SearchBarContainer = styled.div`
-  height: 40px;
-  border-radius: 20px;
-  padding: 15px;
+  height: auto;
+  width: 70%;
+  padding: 3px 20px;
+  border-radius: 1rem;
   justify-content: center;
   align-items: center;
-  margin-left: 50 px;
   display: flex;
 
   background-color: #eeeeee;
@@ -146,47 +150,39 @@ export const SearchIcon = styled.img`
 export const IconsContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin: 0px 0px;
+  width: 100%;
 `;
 
 export const ProfileAnchor = styled.div`
+  margin: 0px 0px;
   text-decoration: none;
-  margin-left: 30px;
   min-width: 30px;
+  margin-right: 50px;
+
+
 `;
 
 export const SignInLink = styled(Link)`
-  font-size: 18px;
+  margin: 0px 0px;
+  font-size: 1rem;
   text-decoration: none;
-
   font-family: "Source Sans 3", sans-serif;
   color: black;
   font-weight: normal;
-  border: 1px solid black;
-  padding: 2px 10px;
+  border-left: 1px solid black;
+  padding-left: 5px;
 `;
 
-export const CartAnchor = styled(Link)``;
-
-export const ProfileIcon = styled(BsFilePerson)`
-  margin-right: 15px;
-  width: 35px;
-  height: auto;
-  color: black;
-`;
-
-export const ProfileIconLink = styled.a`
-  cursor: pointer;
-`;
-
-export const LoginIcon = styled(CgLogIn)`
-  margin-right: 15px;
-  width: 35px;
-  height: auto;
-  color: black;
+export const CartAnchor = styled(Link)`
+  width: 7%;
+  margin: 0px 0px;
+  margin-left: 50px;
 `;
 
 export const CartIcon = styled(FaShoppingCart)`
-  width: 30px;
+  width: 100%;
   height: auto;
   color: black;
 `;

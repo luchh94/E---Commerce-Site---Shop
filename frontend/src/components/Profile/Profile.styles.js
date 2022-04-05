@@ -19,14 +19,12 @@ export const UpperContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-margin-top: 20px;
+  margin-top: 20px;
   grid-area: header;
   align-items: center;
   > h1 {
     font-family: "Source Sans 3", sans-serif;
     font-weight: normal;
-    
-
   }
 `;
 
@@ -42,14 +40,17 @@ export const PersonalContainer = styled.div`
     font-weight: normal;
     font-size: 20px;
     font-family: "Source Sans 3", sans-serif;
-    margin-bottom: 80px;
+    margin-bottom: 35px;
     border-bottom: 1px solid black;
   }
-
-  > button {
+  > form {
+    display: flex;
+    flex-direction: column;
+    > button {
       margin-top: 20px;
       width: 90px;
       height: 30px;
+    }
   }
 `;
 
@@ -62,12 +63,16 @@ export const InputContainer = styled.div`
     margin: 0 0;
     padding-left: 20px;
     margin-left: 50px;
+
+
   }
 
   > input {
     height: 25px;
+    width: 250px;
     margin: 0 0;
-    padding-right: 50px;
+    
+
     margin-right: 100px;
     border: none;
     border-bottom: 2px solid black;
@@ -75,12 +80,12 @@ export const InputContainer = styled.div`
 `;
 
 export const LoginDataContainer = styled.div`
-   width: 720px;
+  width: 720px;
   height: auto;
   grid-area: login;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid black;
+
 
   > h2 {
     font-weight: normal;
@@ -89,15 +94,19 @@ export const LoginDataContainer = styled.div`
     margin-bottom: 80px;
     border-bottom: 1px solid black;
   }
-
-  > button {
-      margin-top: 60px;
+  > form {
+    display: flex;
+    flex-direction: column;
+    > button {
+      margin-top: 65px;
       width: 90px;
       height: 30px;
+    }
   }
 `;
 
 export const ErrormessageContainer = styled.div`
+  color: red;
   grid-area: error;
 `;
 

@@ -9,18 +9,21 @@ export const ProductHeader = styled.div`
 `;
 
 export const AppleHeader = styled.img`
+  width: 50%;
+  height: auto;
+
 
 `
 
 export const UnderLine = styled.img`
   height: 2px;
-  width: 335px;
+  width: 20%;
   margin-top: 25px;
 `;
 
 export const Container = styled.div`
-  height: 1040px;
-  width: 1440px;
+  max-height: 1040px;
+  width: 100%;
 `;
 
 export const Title = styled.div`

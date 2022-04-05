@@ -1,12 +1,11 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 import logo from "./logo.jpg";
 import IconSearch from "./search_png.png";
 import ProductMenu from "./ProductMenu";
 import { HashLink } from "react-router-hash-link";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import MyDropdown from "./ProfileMenu";
 
 import {
@@ -23,21 +22,17 @@ import {
   SearchIcon,
   IconsContainer,
   ProfileAnchor,
-  ProfileIcon,
   CartAnchor,
   CartIcon,
   LinkElement,
-  LoginIcon,
   SignInLink,
-  ProfileIconLink,
 } from "./Header.styles.js";
-import Example from "./ProfileMenu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const menuRef = useRef();
-  const { userInfo } = useSelector((state) => state.userLogin);
 
   const menuHandler = (event) => {
     event.preventDefault();
@@ -46,6 +41,11 @@ const Header = () => {
     } else {
       setIsOpen(false);
     }
+  };
+
+  const redirectHandler = (e) => {
+    e.preventDefault();
+    navigate("/");
   };
 
   const userLoggedIn = localStorage.getItem("userData");
@@ -72,7 +72,7 @@ const Header = () => {
         {/* Container Two - Logo */}
 
         <ContainerTwo>
-          <Logo src={logo} />
+          <Logo src={logo} onClick={redirectHandler} />
         </ContainerTwo>
 
         {/* Container Three - Searchbar + Profile and Cart */}
@@ -89,16 +89,15 @@ const Header = () => {
           {/* Icons*/}
 
           <IconsContainer>
-            <Link to="/cart">
-              <CartAnchor to="/cart">
-                <CartIcon />
-              </CartAnchor>
-            </Link>
+            <CartAnchor to="/cart">
+              <CartIcon />
+            </CartAnchor>
+
             <ProfileAnchor>
               {userLoggedIn ? (
                 <MyDropdown />
               ) : (
-                <SignInLink to="/signin">SIGN IN</SignInLink>
+                <SignInLink to="/signin">REGISTER / LOGIN</SignInLink>
               )}
             </ProfileAnchor>
           </IconsContainer>

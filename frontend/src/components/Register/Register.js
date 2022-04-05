@@ -8,7 +8,8 @@ import {
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register, login } from "../../redux/actions/userActions";
+import { register } from "../../redux/actions/userActions";
+import Loading from "../Ui/Loading";
 
 import React from "react";
 
@@ -46,7 +47,11 @@ const Register = () => {
       <HeaderContainer>
         <h1>SIGN IN</h1>
       </HeaderContainer>
-      <ErrormessageContainer>{message && <p>{message}</p>}</ErrormessageContainer>
+      <ErrormessageContainer>
+        {message && <p>{message}</p>}
+        {error && <p>{error}</p>}
+        {loading && <Loading />}
+      </ErrormessageContainer>
       <FormContainer>
         <form onSubmit={submitHandler}>
           <label>Name</label>

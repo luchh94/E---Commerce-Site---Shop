@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/actions/userActions";
 import { Link } from "react-router-dom";
@@ -7,13 +8,15 @@ import { Link } from "react-router-dom";
 const ProfileMenu = () => {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.userLogin);
+  const navigate = useNavigate();
 
   const logoutHandler = (event) => {
     dispatch(logout());
+    navigate("/");
   };
 
   return (
-    <Menu as="div" class="relative inline-block text-left">
+    <Menu as="div" class="relative inline-block text-left w-40">
       <div>
         <Menu.Button
           type="button"

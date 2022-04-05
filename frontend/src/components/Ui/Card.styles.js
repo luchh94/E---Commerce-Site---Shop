@@ -4,8 +4,8 @@ import { FaInfoCircle } from "react-icons/fa";
 export const CardDiv = styled.div`
   display: flex;
   flex-direction: column;
-  height: 327px;
-  width: 259px;
+  max-height: 327px;
+  width: 50%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding-top: 20px;
   justify-content: space-between;
@@ -13,9 +13,10 @@ export const CardDiv = styled.div`
 
   img {
     margin-bottom: 11px;
-    height: 136px;
+    height: 40%;
     width: auto;
   }
+
 `;
 
 export const ShadowDetail = styled.div`
@@ -26,13 +27,13 @@ export const ShadowDetail = styled.div`
   position: absolute;
   margin-top: -20px;
 
-  width: 259px;
-  height: 327px;
+  width: 14%;
+  height: 330px;
 
   opacity: 0%;
   transform: translateY(30px);
   transform: translateX(-130px);
-  
+
   cursor: pointer;
   z-index: 9999;
 

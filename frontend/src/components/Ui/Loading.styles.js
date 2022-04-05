@@ -1,9 +1,11 @@
-import { ThreeCircles } from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 import styled from "styled-components";
 
-export const Spinner = styled(ThreeCircles)`
-  height: 200px;
-  width: 200px;
+export const Spinner = styled(LineWave)`
+  height: 150%;
+  width: auto;
+  color: black;
+  background-color: black;
 `;
 
 export const Container = styled.div`

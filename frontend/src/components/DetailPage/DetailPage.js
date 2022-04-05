@@ -30,9 +30,7 @@ const DetailPage = (props) => {
   const arrayKeys = [...Array(product.countInStock).keys()];
 
   const addToCartHandler = () => {
-    console.log("hello");
     history(`/cart/${props.id}?${qty}`);
-    console.log(qty);
   };
 
   return (

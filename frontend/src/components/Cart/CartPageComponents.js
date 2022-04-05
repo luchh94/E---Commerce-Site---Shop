@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import {
   Container,
   ContainerLeft,
@@ -22,12 +22,12 @@ import {
   cartActionsRemove,
 } from "./../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
-import { cartReducer } from "../../redux/reducers/cartReducer";
 
 const CartPageComponents = (props) => {
   const { id } = useParams();
   const productId = id;
   const { search } = useLocation();
+  const navigate = useNavigate();
   const qty = Number(search.split("?")[1]);
 
   const dispatch = useDispatch();
@@ -56,6 +56,11 @@ const CartPageComponents = (props) => {
     return acc + cur;
   }, 0);
 
+  const redirectHandler = (e) => {
+    e.preventDefault();
+    navigate("/shipping");
+  };
+
   return (
     <Fragment>
       <Title>
@@ -74,7 +79,7 @@ const CartPageComponents = (props) => {
             {cartItems.map((item) => (
               <ListItem>
                 <p>
-                  <img src={item.image} />
+                  <img src={item.image} alt="itemPicture" />
                   <h3>{item.name}</h3>
                 </p>
                 <p>{item.price * item.qty}$</p>
@@ -125,11 +130,11 @@ const CartPageComponents = (props) => {
               <p>{totalQty}</p>
             </li>
             <li>
-              <p>Total: </p>
-              <p>{totalPrice}$</p>
+              <h3>TOTAL: </h3>
+              <h4>{totalPrice}$</h4>
             </li>
 
-            <button>CHECKOUT</button>
+            <button onClick={redirectHandler}>CHECKOUT</button>
           </CheckoutContainer>
         </ContainerRight>
       </Container>

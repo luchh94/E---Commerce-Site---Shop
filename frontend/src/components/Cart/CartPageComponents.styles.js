@@ -152,11 +152,24 @@ export const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-
   > li {
     display: flex;
     margin: 0 0;
     justify-content: space-between;
+    > h3 {
+
+      color: white;
+      margin: 0 0;
+      margin-left: 60px;
+      font-size: 1.5rem;
+    }
+    > h4 {
+
+      color: white;
+      margin: 0 0;
+      margin-right: 60px;
+      font-size: 1.5rem;
+    }
 
     > p {
       color: white;

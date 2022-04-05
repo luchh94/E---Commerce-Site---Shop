@@ -21,6 +21,22 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    city: {
+      type: String,
+      required: false,
+    },
+    adress: {
+      type: String,
+      required: false,
+    },
+    zipcode: {
+      type: String,
+      required: false,
+    },
+    country: {
+      type: String,
+      required: false,
+    }
   },
   {
     timestamps: true,

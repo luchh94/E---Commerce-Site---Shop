@@ -51,6 +51,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userData");
+  localStorage.removeItem("shippingAdress");
   dispatch({
     type: USER_LOGOUT,
   });
@@ -95,23 +96,23 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 
-const updateDetail = (name, email, password) => async (dispatch) => {
+export const updateDetail = (user) => async (dispatch, getState) => {
   try {
     dispatch({
       type: USER_UPDATE_REQUEST,
     });
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
     const config = {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.put(
-      "/api/users/profile",
-      { name, email, password },
-      config
-    );
+    const { data } = await axios.put("/api/users/profile", user, config);
 
     dispatch({
       type: USER_UPDATE_SUCCESS,

@@ -31,6 +31,10 @@ const authUser = AsyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      city: user.city,
+      zipcode: user.zipcode,
+      adress: user.adress,
+      country: user.country,
       token: generateToken(user._id),
     });
   } else {
@@ -68,12 +72,17 @@ const registerUser = AsyncHandler(async (req, res) => {
 const getUserProfile = AsyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
+
   if (user) {
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
+      city: user.city,
+      zipcode: user.zipcode,
+      adress: user.adress,
       isAdmin: user.isAdmin,
+      country: user.country,
     });
   } else {
     res.status(401);
@@ -83,10 +92,15 @@ const getUserProfile = AsyncHandler(async (req, res) => {
 
 const updateUserProfile = AsyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
+  console.log(req.user)
 
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
+    user.city = req.body.city;
+    user.zipcode = req.body.zipcode;
+    user.adress = req.body.adress;
+    user.country = req.body.country;
     if (req.body.password) {
       user.password = req.body.password;
     }
@@ -97,6 +111,11 @@ const updateUserProfile = AsyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      city: updatedUser.city,
+      adress: updatedUser.adress,
+      zipcode: updatedUser.zipcode,
+      country: updatedUser.country,
+
       token: generateToken(updatedUser._id),
     });
   } else {

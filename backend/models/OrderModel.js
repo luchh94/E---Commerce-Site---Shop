@@ -12,7 +12,7 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true,
       },
-      quantity: {
+      qty: {
         type: Number,
         required: true,
       },
@@ -40,7 +40,7 @@ const orderSchema = mongoose.Schema({
       type: String,
       required: true,
     },
-    postalCode: {
+    zipcode: {
       type: String,
       required: true,
     },
@@ -82,7 +82,6 @@ const orderSchema = mongoose.Schema({
   },
   paidAt: {
     type: Date,
-    required: true,
   },
   isDelivered: {
     type: Boolean,
