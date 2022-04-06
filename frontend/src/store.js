@@ -15,6 +15,7 @@ import { cartReducer } from "./redux/reducers/cartReducer";
 import {
   createOrderReducer,
   getOrderByIdReducer,
+  updateOrderToPaidReducer,
 } from "./redux/reducers/orderReducer";
 
 const reducer = combineReducers({
@@ -27,6 +28,7 @@ const reducer = combineReducers({
   userUpdate: userUpdateProfileReducer,
   orderCreate: createOrderReducer,
   orderDetails: getOrderByIdReducer,
+  orderPay: updateOrderToPaidReducer,
 });
 
 const cartItemsFromStorage = localStorage.getItem("cartItems")

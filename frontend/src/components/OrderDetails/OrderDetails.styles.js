@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { RiInformationLine } from "react-icons/ri";
+import { PayPalButton } from "react-paypal-button-v2";
 
 export const Container = styled.div`
   width: 75%;
@@ -13,7 +14,7 @@ export const Container = styled.div`
   grid-template-areas:
     "shipping ordersum"
     "payment ordersum"
-    "orderitems orderitems";
+    "orderitems ordersum";
 `;
 
 export const ShippingContainer = styled.div`
@@ -33,7 +34,7 @@ export const ShippingContainer = styled.div`
     flex-direction: column;
     > p {
       margin-top: 20px;
-      letter-spacing: 5px;
+
       font-size: 1rem;
     }
   }
@@ -68,10 +69,17 @@ export const PaymentContainer = styled.div`
       align-items: center;
       font-size: 1rem;
       margin-top: 20px;
-      background-color: #841F34;
+      background-color: #841f34;
       padding: 10px 10px;
       color: white;
       opacity: 70%;
+    }
+    > h3 {
+      background-color: #9ad8aa;
+      color: white;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
     }
 
     justify-content: center;
@@ -166,12 +174,16 @@ export const ListItem = styled.li`
 
 export const OrderSummaryContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70%;
   grid-area: ordersum;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+
+  >div{
+    width: 100%;
+    margin-top: 10%;
+  }
 
   > h1 {
     padding-bottom: 7px;
@@ -206,4 +218,9 @@ export const ItemContainer = styled.div`
     font-size: 1.5rem;
     opacity: 70%;
   }
+`;
+
+export const PaypalButton = styled(PayPalButton)`
+  height: 100%;
+  width: 1000px;
 `;

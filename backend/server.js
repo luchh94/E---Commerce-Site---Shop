@@ -6,18 +6,22 @@ import { errorHandler, notFound } from "./middleware/ErrorMiddleware.js";
 
 import productRouter from "./routes/ProductRoutes.js";
 import userRouter from "./routes/UserRoutes.js";
-import orderRouter from './routes/OrderRoutes.js'
+import orderRouter from "./routes/OrderRoutes.js";
 
 dotenv.config();
 
 connectDB();
 
 const app = express();
-app.use(express.json()) // Will enable JSON Data in the Body
+app.use(express.json()); // Will enable JSON Data in the Body
 
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
+
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
 app.use(notFound);
 
 app.use(errorHandler);

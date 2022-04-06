@@ -24,8 +24,7 @@ export const ContactBox = styled.div`
     right: 0;
     width: 100%;
     height: 100%;
-    background: url(https://images.unsplash.com/photo-1604076850742-4c7221f3101b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2731&q=80)
-      no-repeat center;
+    
     background-size: cover;
     opacity: 5%;
     z-index: -1;

@@ -1,4 +1,5 @@
 import AsyncHandler from "express-async-handler";
+
 import Order from "./../models/OrderModel.js";
 
 const createNewOrder = AsyncHandler(async (req, res) => {
@@ -48,4 +49,30 @@ const getOrderById = AsyncHandler(async (req, res) => {
   }
 });
 
-export { createNewOrder, getOrderById };
+const updateOrderToPaid = AsyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    order.paymentResult = {
+      id: req.body.id,
+      status: req.body.status,
+      update_time: req.body.update_time,
+      email_adress: req.body.payer.email_adress,
+    };
+
+    const updatedOrder = await order.save();
+
+    res.json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error("Order not found!");
+  }
+});
+
+const getLoggedUserOrders = AsyncHandler(async (req, res) => {
+  const orders = Order.find({ user: req.user._id });
+  res.json(orders);
+});
+
+export { createNewOrder, getOrderById, updateOrderToPaid, getLoggedUserOrders };
