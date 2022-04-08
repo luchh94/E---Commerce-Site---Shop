@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../redux/actions/userActions";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const ProfileMenu = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ const ProfileMenu = () => {
     dispatch(logout());
     navigate("/");
   };
+
+useEffect(() => {
+  
+},[])
 
   return (
     <Menu as="div" class="relative inline-block text-left w-40">
@@ -61,6 +66,16 @@ const ProfileMenu = () => {
           >
             Profile and Orders
           </Link>
+          {userInfo.isAdmin ?           <Link
+            to="/admin/users"
+            href="#"
+            class="text-gray-700 block px-4 py-2 text-sm no-underline"
+            role="menuitem"
+            tabindex="-1"
+            id="menu-item-0"
+          >
+            Admin Controls
+          </Link> : <></> }
 
           <form method="POST" action="#" role="none">
             <button

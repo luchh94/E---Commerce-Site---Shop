@@ -26,5 +26,14 @@ const protect = AsyncHandler(async (req, res, next) => {
   next();
 });
 
-export { protect };
+const adminCheck = AsyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user.id);
+  if (user.isAdmin === false) {
+    res.status(401);
+    throw new Error("You are not an Admin");
+  } else {
+    next();
+  }
+});
 
+export { protect, adminCheck };

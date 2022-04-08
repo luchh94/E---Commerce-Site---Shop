@@ -72,7 +72,7 @@ const OrderDetails = () => {
       dispatch({
         type: ORDER_PAY_RESET,
       });
-     
+
       dispatch(getOrderById(id));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -86,6 +86,7 @@ const OrderDetails = () => {
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
     dispatch(payOrder(id, paymentResult));
+    setPaid(true);
   };
 
   return loading ? (
@@ -111,7 +112,7 @@ const OrderDetails = () => {
           <p>
             Payment Method: <h3>{cart.paymentMethod}</h3>
           </p>
-          {isPaid ? (
+          {order.isPaid ? (
             <h3>Order is paid!</h3>
           ) : (
             <div>

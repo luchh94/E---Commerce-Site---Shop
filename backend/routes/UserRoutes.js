@@ -7,11 +7,11 @@ import {
   getUserProfile,
   updateUserProfile,
 } from "../controllers/userControllers.js";
-import { protect } from "../middleware/authMiddleware.js";
+import { protect, adminCheck } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.route("/").get(getAllUsers);
+router.route("/").get(protect, adminCheck, getAllUsers);
 router.route("/register").post(registerUser);
 router.route("/login").post(authUser);
 router

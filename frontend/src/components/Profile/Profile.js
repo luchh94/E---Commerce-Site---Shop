@@ -7,13 +7,17 @@ import {
   UpperContainer,
   BottomContainer,
   InputContainer,
+  HeaderOrdersContainer,
+  ListContainer,
+  InfoSymbol,
 } from "./Profile.styles";
 import Loading from "../Ui/Loading";
 
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserDetails, updateDetail } from "../../redux/actions/userActions";
+import { listOrders } from "../../redux/actions/orderActions";
 
 import React from "react";
 
@@ -24,6 +28,11 @@ const Register = () => {
   const { loading, error, user } = userDetails;
   const { userInfo } = useSelector((state) => state.userLogin);
   const { success } = useSelector((state) => state.userUpdate);
+  const {
+    orders,
+    loading: listLoading,
+    error: listError,
+  } = useSelector((state) => state.orderList);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +50,7 @@ const Register = () => {
     } else {
       if (!user.name) {
         dispatch(getUserDetails("profile"));
+        dispatch(listOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -176,7 +186,51 @@ const Register = () => {
           </form>
         </LoginDataContainer>
       </UpperContainer>
-      <BottomContainer></BottomContainer>
+      <BottomContainer>
+        <HeaderOrdersContainer>
+          <h1>Orders</h1>
+        </HeaderOrdersContainer>
+        <ListContainer>
+          {listLoading ? (
+            <Loading />
+          ) : listError ? (
+            <p>{listError}</p>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>DATE</th>
+                  <th>TOTAL</th>
+                  <th>PAID</th>
+                  <th>DELIVERED</th>
+                  <th>info</th>
+                </tr>
+              </thead>
+              <tbody>
+                {!orders ? (
+                  <p> No Orders here </p>
+                ) : (
+                  orders.map((orders) => (
+                    <tr key={orders._id}>
+                      <td>{orders._id}</td>
+                      <td>{orders.createdAt.substring(0, 10)}</td>
+                      <td>{orders.totalPrice}</td>
+                      <td>{orders.isPaid ? <a>yes</a> : <a>no</a>}</td>
+                      <td>{orders.isDelivered ? <a>yes</a> : <a>no</a>}</td>
+                      <td>
+                        <Link to={`/orders/${orders._id}`}>
+                          <InfoSymbol />
+                        </Link>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          )}
+        </ListContainer>
+      </BottomContainer>
     </Container>
   );
 };

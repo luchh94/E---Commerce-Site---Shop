@@ -71,7 +71,8 @@ const updateOrderToPaid = AsyncHandler(async (req, res) => {
 });
 
 const getLoggedUserOrders = AsyncHandler(async (req, res) => {
-  const orders = Order.find({ user: req.user._id });
+  const orders = await Order.find({ user: req.user._id });
+
   res.json(orders);
 });
 

@@ -10,6 +10,7 @@ import ShippingPage from "./Pages/ShippingPage";
 import PaymentPage from "./Pages/PaymentPage";
 import PlaceOrderPage from "./Pages/PlaceOrderPage";
 import OrderDetailsPage from "./Pages/OrderDetailsPage";
+import AdminUsersScreen from "./Pages/AdminUsersScreen";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/orders/:id" element={<OrderDetailsPage />} />
+          <Route path="/admin/users" element={<AdminUsersScreen />} />
         </Routes>
       </Router>
     </div>

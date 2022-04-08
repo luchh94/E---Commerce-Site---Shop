@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { RiInformationLine } from "react-icons/ri";
 
 export const Container = styled.div`
-  max-width: 1440px;
+  width: 100%;
   max-height: 800px;
 `;
 
@@ -9,8 +10,8 @@ export const UpperContainer = styled.div`
   display: grid;
   grid-template-columns: 720px 720px;
   grid-template-rows: 60px 60px 380px;
-  max-width: 1440px;
-  height: 500px;
+  width: 80%;
+  max-height: 500px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   grid-template-areas:
     "header header"
@@ -63,15 +64,12 @@ export const InputContainer = styled.div`
     margin: 0 0;
     padding-left: 20px;
     margin-left: 50px;
-
-
   }
 
   > input {
     height: 25px;
     width: 250px;
     margin: 0 0;
-    
 
     margin-right: 100px;
     border: none;
@@ -85,7 +83,6 @@ export const LoginDataContainer = styled.div`
   grid-area: login;
   display: flex;
   flex-direction: column;
-
 
   > h2 {
     font-weight: normal;
@@ -111,7 +108,52 @@ export const ErrormessageContainer = styled.div`
 `;
 
 export const BottomContainer = styled.div`
-  width: 1440px;
+  width: 80%;
   height: 750px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+`;
+
+export const HeaderOrdersContainer = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  > h1 {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: normal;
+  }
+`;
+
+export const ListContainer = styled.div`
+  width: 100%;
+  height: 500px;
+
+  > table {
+    width: 100%;
+
+    > tbody {
+      width: 100%;
+
+      > tr {
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        > td {
+          justify-content: center;
+          text-align: center;
+          background-color: #dee6ed;
+        }
+      }
+    }
+
+    > li {
+      list-style: none;
+      display: flex;
+    }
+  }
+`;
+
+export const InfoSymbol = styled(RiInformationLine)`
+  width: 30%;
+  height: auto;
 `;

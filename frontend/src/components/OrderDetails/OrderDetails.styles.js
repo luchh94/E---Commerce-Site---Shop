@@ -78,6 +78,7 @@ export const PaymentContainer = styled.div`
       background-color: #9ad8aa;
       color: white;
       width: 100%;
+      padding: 10px 10px;
       justify-content: center;
       text-align: center;
     }
