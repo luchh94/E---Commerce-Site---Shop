@@ -74,8 +74,19 @@ useEffect(() => {
             tabindex="-1"
             id="menu-item-0"
           >
-            Admin Controls
+            Admin USERS
           </Link> : <></> }
+          {userInfo.isAdmin ?           <Link
+            to="/admin/products"
+            href="#"
+            class="text-gray-700 block px-4 py-2 text-sm no-underline"
+            role="menuitem"
+            tabindex="-1"
+            id="menu-item-0"
+          >
+            Admin PRODUCTS
+          </Link> : <></> }
+          
 
           <form method="POST" action="#" role="none">
             <button

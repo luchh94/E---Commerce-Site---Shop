@@ -48,7 +48,7 @@ const Register = () => {
     if (!userInfo) {
       navigate("/signin");
     } else {
-      if (!user.name) {
+      if (!user || !user.name || success) {
         dispatch(getUserDetails("profile"));
         dispatch(listOrders());
       } else {
@@ -60,7 +60,7 @@ const Register = () => {
         setCountry(user.country);
       }
     }
-  }, [dispatch, navigate, userInfo, user]);
+  }, [dispatch, navigate, userInfo, user, success]);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -83,7 +83,9 @@ const Register = () => {
     }
   };
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Container>
       <UpperContainer>
         <HeaderContainer>

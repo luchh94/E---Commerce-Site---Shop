@@ -1,7 +1,18 @@
 import {
+  USER_DELETE_FAIL,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
   USER_DETAIL_FAIL,
   USER_DETAIL_REQUEST,
+  USER_DETAIL_RESET,
   USER_DETAIL_SUCCESS,
+  USER_EDIT_FAIL,
+  USER_EDIT_REQUEST,
+  USER_EDIT_RESET,
+  USER_EDIT_SUCCESS,
+  USER_GET_FAIL,
+  USER_GET_REQUEST,
+  USER_GET_SUCCESS,
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
   USER_LIST_RESET,
@@ -54,6 +65,8 @@ export const userDetailReducer = (state = { user: {} }, action) => {
       return { loading: false, user: action.payload };
     case USER_DETAIL_FAIL:
       return { loading: false, error: action.payload };
+    case USER_DETAIL_RESET:
+      return { user: {} };
 
     default:
       return state;
@@ -80,9 +93,57 @@ export const userListReducer = (state = { users: [] }, action) => {
     case USER_LIST_SUCCESS:
       return { ...state, loading: false, users: action.payload };
     case USER_LIST_FAIL:
-      return { ...state };
+      return { loading: false, error: action.payload };
     case USER_LIST_RESET:
-      return { users: {} };
+      return { users: [] };
+    default:
+      return state;
+  }
+};
+
+export const userDeleteReducer = (state = { success: false }, action) => {
+  switch (action.type) {
+    case USER_DELETE_REQUEST:
+      return { loading: true };
+    case USER_DELETE_SUCCESS:
+      return { loading: false, success: true };
+    case USER_DELETE_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return {};
+  }
+};
+
+export const getUserReducer = (
+  state = { user: {}, loading: false },
+  action
+) => {
+  switch (action.type) {
+    case USER_GET_REQUEST:
+      return { ...state, loading: true };
+    case USER_GET_SUCCESS:
+      return { loading: false, user: action.payload };
+    case USER_GET_FAIL:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const userEditReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_EDIT_REQUEST:
+      return { loading: true };
+    case USER_EDIT_SUCCESS:
+      return { loading: false, success: true, userInfo: action.payload };
+    case USER_EDIT_FAIL:
+      return { loading: false, success: false, error: action.payload };
+    case USER_EDIT_RESET:
+      return {
+        user: {},
+      };
+
     default:
       return state;
   }

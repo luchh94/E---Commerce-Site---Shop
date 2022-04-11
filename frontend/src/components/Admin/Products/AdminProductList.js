@@ -2,8 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
-import { listUser, deleteUser } from "../../../redux/actions/userActions";
+import { listProducts } from "../../../redux/actions/productActions";
 import Loading from "../../Ui/Loading";
 import {
   Container,
@@ -12,27 +11,27 @@ import {
   DeleteSymbol,
   AdminRow,
   NotSymbol,
-} from "./Users.styles";
+} from "./AdminProductList.styles";
 
 const Users = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { users, loading, error } = useSelector((state) => state.userList);
-  const { success:successDelete } = useSelector(
-    (state) => state.userDelete
-  );
+
+  const { success: successDelete } = useSelector((state) => state.userDelete);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const productList = useSelector((state) => state.productList);
+  const { loading, products, error } = productList;
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
-      dispatch(listUser());
+      dispatch(listProducts());
     } else {
       navigate("/login");
     }
-  }, [dispatch, successDelete]);
+  }, [dispatch]);
 
   const deleteUserHandler = (id) => {
     if (window.confirm("Are you sure?")) {
-      dispatch(deleteUser(id));
+      console.log("delete");
     }
   };
 
@@ -42,30 +41,40 @@ const Users = () => {
     <p>{error.message}</p>
   ) : (
     <Container>
+      <div>
+        <h1>PRODUCTS</h1>
+        <button>+ Add Product</button>
+      </div>
+
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>NAME</th>
-            <th>EMAIL</th>
+            <th>PRICE</th>
+            <th>CATEGORY</th>
+            <th>BRAND</th>
             <th>ADMIN AND ACTION</th>
           </tr>
         </thead>
         <tbody>
-          {!users ? (
+          {!products ? (
             <p> No Users or Refresh Site </p>
           ) : (
-            users.map((users) => (
-              <tr key={users._id}>
-                <td>{users._id}</td>
-                <td>{users.name}</td>
-                <td>{users.email}</td>
+            products.map((product) => (
+              <tr key={product._id}>
+                <td>{product._id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}$</td>
+                <td>{product.category}</td>
+                <td>{product.brand}</td>
                 <AdminRow>
-                  {users.isAdmin ? <CheckMark /> : <NotSymbol />}{" "}
-                  <Link to={`/admin/users/edit/${users._id}`}>
+                  <Link to={`/admin/product/edit/${product._id}`}>
                     <EditSymbol />
                   </Link>
-                  <DeleteSymbol onClick={() => deleteUserHandler(users._id)} />
+                  <DeleteSymbol
+                    onClick={() => deleteUserHandler(product._id)}
+                  />
                 </AdminRow>
               </tr>
             ))

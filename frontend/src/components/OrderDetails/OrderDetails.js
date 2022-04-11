@@ -101,8 +101,8 @@ const OrderDetails = () => {
           <p>
             {" "}
             Adress:
-            {cart.shippingAdress.country}, {cart.shippingAdress.city},{" "}
-            {cart.shippingAdress.zipcode}, {cart.shippingAdress.adress}
+            {order.shippingAdress.country}, {order.shippingAdress.city},{" "}
+            {order.shippingAdress.zipcode}, {order.shippingAdress.adress}
           </p>
         </div>
       </ShippingContainer>
@@ -125,7 +125,7 @@ const OrderDetails = () => {
       <OrderContainer>
         <h1>ORDERS</h1>
         <ListContainer>
-          {cartItems.map((item) => (
+          {order.orderItems.map((item) => (
             <ListItem>
               <p>
                 <img src={item.image} alt="itemPicture" />
