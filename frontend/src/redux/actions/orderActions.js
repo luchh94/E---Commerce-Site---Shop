@@ -2,6 +2,9 @@ import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_SUCCESS,
+  ORDER_GETALL_FAIL,
+  ORDER_GETALL_REQUEST,
+  ORDER_GETALL_SUCCESS,
   ORDER_GET_FAIL,
   ORDER_GET_REQUEST,
   ORDER_GET_SUCCESS,
@@ -145,6 +148,39 @@ export const listOrders = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: ORDER_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getAllOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_GETALL_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/orders/`, config);
+
+    dispatch({
+      type: ORDER_GETALL_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ORDER_GETALL_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

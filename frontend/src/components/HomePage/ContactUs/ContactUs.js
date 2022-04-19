@@ -1,34 +1,46 @@
 import React from "react";
+
 import {
   Container,
-  ContactBox,
-  Left,
+  ContactForm,
   Header,
   InputName,
   InputEmail,
   InputPhone,
   TextArea,
-  Right,
+  MapContainer,
   SubmitButton,
+  AdressContainer,
+  LowerContainer,
+
 } from "./ContactUs.styles";
 import ReactMap from "./ReactMap";
 
 const ContactUs = () => {
   return (
     <Container id="contact">
-      <ContactBox>
-        <Header src="./assets/Tech42Day/ProductHeaders/contactusheader.png" />
-        <Left>
-          <InputName type="text" placeholder="Your Name..." />
-          <InputEmail type="email" placeholder="Your Email..." />
-          <InputPhone type="text" placeholder="Your Phone..." />
-          <TextArea />
-          <SubmitButton>Submit</SubmitButton>
-        </Left>
-      </ContactBox>
-      <Right>
-        <ReactMap />
-      </Right>
+      <Header src="./assets/Tech42Day/ProductHeaders/contactusheader.png" />
+      <ContactForm>
+        <InputName type="text" placeholder="Your Name..." />
+        <InputEmail type="email" placeholder="Your Email..." />
+        <InputPhone type="text" placeholder="Your Phone..." />
+        <TextArea />
+        <SubmitButton>Submit</SubmitButton>
+      </ContactForm>
+      <LowerContainer>
+        <MapContainer>
+          <ReactMap />
+        </MapContainer>
+        <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/eH2N8fondYuNq3ko9">
+
+          <AdressContainer>
+            <h3>Germany</h3>
+            <h3>Alter Wall 44</h3>
+            <h3>22529</h3>
+          </AdressContainer>
+          </a>
+
+      </LowerContainer>
     </Container>
   );
 };

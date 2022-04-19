@@ -12,6 +12,10 @@ import {
   ORDER_LIST_REQUEST,
   ORDER_LIST_SUCCESS,
   ORDER_LIST_FAIL,
+  ORDER_GETALL_REQUEST,
+  ORDER_GETALL_SUCCESS,
+  ORDER_GETALL_RESET,
+  ORDER_GETALL_FAIL,
 } from "./../constants/orderConstants";
 
 export const createOrderReducer = (state = {}, action) => {
@@ -106,6 +110,27 @@ export const getLoggedInUserOrdersReducer = (
 
     case ORDER_PAY_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const getAllOrdersReducer = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case ORDER_GETALL_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_GETALL_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case ORDER_GETALL_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

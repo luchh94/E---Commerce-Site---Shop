@@ -12,6 +12,7 @@ import {
 import Card from "../../../Ui/Card";
 import Loading from "../../../Ui/Loading";
 
+
 const Apple = () => {
   const dispatch = useDispatch();
 

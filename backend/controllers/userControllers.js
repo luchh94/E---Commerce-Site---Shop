@@ -2,6 +2,7 @@ import AsyncHandler from "express-async-handler";
 import User from "../models/UserModel.js";
 import generateToken from "../utils/generateToken.js";
 import bcrypt from "bcryptjs";
+import Order from "../models/OrderModel.js";
 
 const getAllUsers = AsyncHandler(async (req, res) => {
   const users = await User.find({});
@@ -23,8 +24,13 @@ const getUserById = AsyncHandler(async (req, res) => {
 
 const deleteUser = AsyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
+  const orders = await Order.find({ user: req.params.id });
+  console.log(orders);
   if (user) {
     await user.remove();
+
+
+
     res.json({
       message: "user was removed",
     });

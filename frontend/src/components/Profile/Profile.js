@@ -20,6 +20,7 @@ import { getUserDetails, updateDetail } from "../../redux/actions/userActions";
 import { listOrders } from "../../redux/actions/orderActions";
 
 import React from "react";
+import { USER_UPDATE_RESET } from "../../redux/constants/userConstants";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const Register = () => {
       navigate("/signin");
     } else {
       if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listOrders());
       } else {

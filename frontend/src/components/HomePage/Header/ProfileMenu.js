@@ -16,22 +16,20 @@ const ProfileMenu = () => {
     navigate("/");
   };
 
-useEffect(() => {
-  
-},[])
+  useEffect(() => {}, []);
 
   return (
     <Menu as="div" class="relative inline-block text-left w-40">
       <div>
         <Menu.Button
           type="button"
-          class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          class="inline-flex overflow-hidden justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
         >
           {" "}
-          {userInfo.name}
+          <p class="truncate">{userInfo.name}</p>
           <svg
             class="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -66,27 +64,48 @@ useEffect(() => {
           >
             Profile and Orders
           </Link>
-          {userInfo.isAdmin ?           <Link
-            to="/admin/users"
-            href="#"
-            class="text-gray-700 block px-4 py-2 text-sm no-underline"
-            role="menuitem"
-            tabindex="-1"
-            id="menu-item-0"
-          >
-            Admin USERS
-          </Link> : <></> }
-          {userInfo.isAdmin ?           <Link
-            to="/admin/products"
-            href="#"
-            class="text-gray-700 block px-4 py-2 text-sm no-underline"
-            role="menuitem"
-            tabindex="-1"
-            id="menu-item-0"
-          >
-            Admin PRODUCTS
-          </Link> : <></> }
-          
+          {userInfo.isAdmin ? (
+            <Link
+              to="/admin/users"
+              href="#"
+              class="text-gray-700 block px-4 py-2 text-sm no-underline"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-0"
+            >
+              Admin USERS
+            </Link>
+          ) : (
+            <></>
+          )}
+          {userInfo.isAdmin ? (
+            <Link
+              to="/admin/products"
+              href="#"
+              class="text-gray-700 block px-4 py-2 text-sm no-underline"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-0"
+            >
+              Admin PRODUCTS
+            </Link>
+          ) : (
+            <></>
+          )}
+          {userInfo.isAdmin ? (
+            <Link
+              to="/admin/orders"
+              href="#"
+              class="text-gray-700 block px-4 py-2 text-sm no-underline"
+              role="menuitem"
+              tabindex="-1"
+              id="menu-item-0"
+            >
+              Admin ORDERS
+            </Link>
+          ) : (
+            <></>
+          )}
 
           <form method="POST" action="#" role="none">
             <button

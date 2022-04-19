@@ -7,11 +7,7 @@ import {
 } from "./UserEdit.styles";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  getUser,
-  getUserDetails,
-  userEdit,
-} from "../../../redux/actions/userActions";
+import { getUserDetails, userEdit } from "../../../redux/actions/userActions";
 import Loading from "../../Ui/Loading";
 import {
   USER_DETAIL_RESET,
@@ -39,19 +35,23 @@ const UserEdit = () => {
   const { success: getUserSuccess } = useSelector((state) => state.userEdit);
 
   useEffect(() => {
-    if (getUserSuccess) {
-      dispatch({ type: USER_EDIT_RESET });
-      dispatch({ type: USER_DETAIL_RESET });
-      navigate("/admin/users");
-    }
-    if (!user.name || user._id !== id) {
-      dispatch(getUserDetails(id));
+    if (userInfo || !userInfo.isAdmin) {
+      navigate("/signin");
     } else {
-      setEmail(user.email);
-      setName(user.name);
-      setIsAdmin(user.isAdmin);
+      if (getUserSuccess) {
+        dispatch({ type: USER_EDIT_RESET });
+        dispatch({ type: USER_DETAIL_RESET });
+        navigate("/admin/users");
+      }
+      if (!user.name || user._id !== id) {
+        dispatch(getUserDetails(id));
+      } else {
+        setEmail(user.email);
+        setName(user.name);
+        setIsAdmin(user.isAdmin);
+      }
     }
-  }, [user, id, dispatch, getUserSuccess]);
+  }, [user, id, dispatch, getUserSuccess, navigate, userInfo]);
 
   return loading ? (
     <Loading />

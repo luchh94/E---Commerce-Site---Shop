@@ -1,26 +1,38 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
-  width: 1440px;
-  height: 750px;
+  width: 80%;
+  height: 1500px;
   display: flex;
+  flex-direction: column;
+`;
+
+export const ProductContainer = styled.div`
+  width: 100%;
+  height: 750px;
+  display: flex; ;
 `;
 
 export const LeftContainer = styled.div`
-  width: 720px;
+  width: 50%;
+
+  height: 750px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   > img {
-    width: 400px;
+    max-width: 400px;
     height: auto;
   }
 `;
 
 export const RightContainer = styled.div`
-  width: 720px;
-  height: auto;
+  width: 50%;
+
+  height: 750px;
+
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
@@ -56,13 +68,15 @@ export const CatAndContent = styled.div`
   }
 `;
 export const PriceAndRating = styled.div`
+  width: 100%;
   margin-top: 50px;
   display: flex;
   margin: 0 0;
-  margin-left: 100px;
+
   margin-top: 30px;
 
   > p {
+    margin-left: 100px;
     font-size: 50px;
     align-items: flex-start;
   }
@@ -79,10 +93,13 @@ export const Description = styled.p`
 `;
 
 export const RatingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-top: 10px;
+  margin-left: 57px;
   > p {
-    margin-left: 57px;
-    margin-top: 10px;
+    margin: 0 0;
   }
 `;
 
@@ -98,22 +115,114 @@ export const CartButton = styled.button`
 export const InStock = styled.div`
   display: flex;
   width: 300px;
+  height: 200;
   margin: 0 0;
   margin-left: 100px;
   margin-top: 30px;
-align-items: center;
+  align-items: center;
+  justify-content: center;
   > p {
     margin-left: 10px;
     font-size: 25px;
   }
   > form {
+    width: 200px;
+    height: 200px;
+  }
+  > select {
     width: 60px;
-    height: 30px;
+    height: 40px;
+  }
+`;
 
-    > select {
-      width: 70px;
-      height: 35px;
+export const ReviewContainer = styled.div`
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  > h1 {
+    margin-top: 50px;
+    font-family: "Source Sans 3", sans-serif;
+  }
+`;
+
+export const ReviewDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  > div {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    > p {
+      justify-content: center;
+      margin: 0 0;
+      font-size: 15px;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
+`;
 
+export const RatingP = styled.p`
+  width: 100%;
+  justify-content: center;
+  display: flex;
+`;
+
+export const Content = styled.div`
+  width: 70%;
+  height: 60px;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ReviewCreateDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 350px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  > h2 {
+    font-family: "Source Sans 3", sans-serif;
+  }
+  > form {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > select {
+      margin-bottom: 10px;
+      width: 100px;
+      height: 30px;
+    }
+
+    > textarea {
+      width: 70%;
+      resize: none;
+      height: 100px;
+    }
+
+    > button {
+      width: 150px;
+      height: 40px;
+    }
+  }
 `;

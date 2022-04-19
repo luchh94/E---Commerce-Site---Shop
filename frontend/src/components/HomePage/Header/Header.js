@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useRef } from "react";
 
 import logo from "./logo.jpg";
-import IconSearch from "./search_png.png";
+
 import ProductMenu from "./ProductMenu";
 import { HashLink } from "react-router-hash-link";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MyDropdown from "./ProfileMenu";
 
 import {
@@ -18,7 +18,6 @@ import {
   ListElement,
   SearchBarContainer,
   SearchbarInput,
-  SearchBtn,
   SearchIcon,
   IconsContainer,
   ProfileAnchor,
@@ -29,6 +28,7 @@ import {
 } from "./Header.styles.js";
 
 const Header = () => {
+  const [keyword, setKeyword] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -49,6 +49,15 @@ const Header = () => {
   };
 
   const userLoggedIn = localStorage.getItem("userData");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/search/${keyword}`);
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <HeaderDiv>
@@ -81,10 +90,17 @@ const Header = () => {
           {/* SearchBar */}
 
           <SearchBarContainer>
-            <SearchbarInput type="text" name="" placeholder="Type to search" />
-            <SearchBtn href="#">
-              <SearchIcon src={IconSearch} />
-            </SearchBtn>
+            <form onSubmit={submitHandler}>
+              <SearchbarInput
+                type="text"
+                name=""
+                placeholder="Type to search"
+                onChange={(e) => setKeyword(e.target.value)}
+              ></SearchbarInput>
+              <button type="submit">
+                <SearchIcon />
+              </button>
+            </form>
           </SearchBarContainer>
           {/* Icons*/}
 

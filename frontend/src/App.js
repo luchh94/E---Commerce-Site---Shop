@@ -13,6 +13,10 @@ import OrderDetailsPage from "./Pages/OrderDetailsPage";
 import AdminUsersScreen from "./Pages/AdminUsersScreen";
 import UserEditPage from "./Pages/UserEditPage";
 import ProductEditPage from "./Pages/ProductEditPage";
+import AdminProductEditPage from "./Pages/AdminProductEditPage";
+import AdminOrderPage from "./Pages/AdminOrderPage";
+import ReviewScreen from "./Pages/ReviewScreen";
+import SearchPage from "./Pages/SearchPage";
 
 function App() {
   return (
@@ -36,6 +40,13 @@ function App() {
           <Route path="/admin/users" element={<AdminUsersScreen />} />
           <Route path="/admin/users/edit/:id" element={<UserEditPage />} />
           <Route path="/admin/products" element={<ProductEditPage />} />
+          <Route
+            path="/admin/products/:id/edit"
+            element={<AdminProductEditPage />}
+          />
+          <Route path="/admin/orders" element={<AdminOrderPage />} />
+          <Route path="/products/:id/reviews" element={<ReviewScreen />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
         </Routes>
       </Router>
     </div>

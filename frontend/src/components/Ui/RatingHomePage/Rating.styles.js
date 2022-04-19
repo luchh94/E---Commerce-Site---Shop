@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StarContainer = styled.div`
-  width: 80px;
+  width: 35%;
   display: flex;
   margin-bottom: ${(props) => (props.detail ? "0" : "20px")};
 `;

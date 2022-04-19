@@ -76,4 +76,9 @@ const getLoggedUserOrders = AsyncHandler(async (req, res) => {
   res.json(orders);
 });
 
-export { createNewOrder, getOrderById, updateOrderToPaid, getLoggedUserOrders };
+const getAllOrders = AsyncHandler(async (req, res) => {
+  const orders = await Order.find({}).populate("user", "id name");
+  res.json(orders);
+});
+
+export { createNewOrder, getOrderById, updateOrderToPaid, getLoggedUserOrders, getAllOrders };

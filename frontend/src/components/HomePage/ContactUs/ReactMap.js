@@ -24,7 +24,9 @@ const ReactMap = () => {
 
   return (
     <div>
-      <MapContainer ref={mapContainer}></MapContainer>
+      <MapContainer ref={mapContainer}>
+
+      </MapContainer>
     </div>
   );
 };

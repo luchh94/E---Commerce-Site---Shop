@@ -11,7 +11,7 @@ import {
   ItemContainer,
   PaypalButton,
 } from "./OrderDetails.styles";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import axios from "axios";
 import { getOrderById, payOrder } from "./../../redux/actions/orderActions";
@@ -25,13 +25,12 @@ const OrderDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const cartItems = cart.cartItems;
-  const navigate = useNavigate();
 
   let totalPriceItem = [];
   let totalQty = [];
 
-  const { order, loading, error } = useSelector((state) => state.orderDetails);
+  const { order, loading } = useSelector((state) => state.orderDetails);
+  
   const { loading: loadingPay, success: successPay } = useSelector(
     (state) => state.orderPay
   );
@@ -47,9 +46,6 @@ const OrderDetails = () => {
       return acc + cur;
     }, 0);
   }
-  const secondDecimal = (num) => {
-    return (Math.round(num * 100) / 100).toFixed(2);
-  };
 
   cart.totalQty = totalQty;
   cart.totalPriceItem = totalPriceItem;
@@ -96,8 +92,8 @@ const OrderDetails = () => {
       <ShippingContainer>
         <h1>SHIPPING</h1>
         <div>
-          <p> Name: {order.user.name}</p>
-          <p> Email: {order.user.email}</p>
+          <p> Name: {order.user && order.user.name }</p>
+          <p> Email: {order.user && order.user.email}</p>
           <p>
             {" "}
             Adress:
@@ -168,7 +164,7 @@ const OrderDetails = () => {
         {!order.isPaid && (
           <div>
             {loadingPay && <Loading />}
-            {!sdkReady ? (
+            {!sdkReady  ? (
               <Loading />
             ) : (
               <PaypalButton

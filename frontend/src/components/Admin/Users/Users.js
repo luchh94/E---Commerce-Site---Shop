@@ -28,7 +28,7 @@ const Users = () => {
     } else {
       navigate("/login");
     }
-  }, [dispatch, successDelete]);
+  }, [dispatch, successDelete, navigate, userInfo]);
 
   const deleteUserHandler = (id) => {
     if (window.confirm("Are you sure?")) {

@@ -8,11 +8,9 @@ export const ProductHeader = styled.div`
 `;
 
 export const MouseAndKeyboardHeader = styled.img`
-height: 40px;
-width: auto;
-
-
-`
+  height: 40px;
+  width: auto;
+`;
 
 export const UnderLine = styled.img`
   height: 2px;
@@ -21,9 +19,13 @@ export const UnderLine = styled.img`
 `;
 
 export const Container = styled.div`
-  height: 1040px;
-  width: 1440px;
-  background-color: #F9F9F9;
+  height: auto;
+  width: 80%;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+
 `;
 
 export const Title = styled.div`
@@ -34,10 +36,10 @@ export const Title = styled.div`
 `;
 
 export const Products = styled.div`
-  height: 820px;
+  height: 850px;
   width: 1440px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
-
+  grid-row-gap: 60px;
+  overflow: auto;
 `;

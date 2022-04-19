@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import {
-  AiOutlineCheckCircle,
-  AiOutlineEdit,
-  AiOutlineDelete,
-  AiOutlineClose,
-} from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 
 export const Container = styled.div`
   width: 100%;
@@ -13,21 +9,21 @@ export const Container = styled.div`
   flex-direction: column;
 
   > div {
-      width: 100%;
-      margin-bottom: 50px;
+    width: 100%;
+    margin-bottom: 50px;
     display: flex;
     > h1 {
       font-family: "Source Sans 3", sans-serif;
     }
 
-    >button{
-        background-color: #F8F6F5;
-        color: black;
-        border-radius: 5px;
-        padding: 5px 20px;
-        &:hover{
-            transform: scale(1.1)
-        }
+    > button {
+      background-color: #f8f6f5;
+      color: black;
+      border-radius: 5px;
+      padding: 5px 20px;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -63,20 +59,18 @@ export const AdminRow = styled.td`
   }
 `;
 
-export const CheckMark = styled(AiOutlineCheckCircle)`
-  height: 25px;
-  width: auto;
-`;
-export const NotSymbol = styled(AiOutlineClose)`
-  height: 25px;
-  width: auto;
-`;
 export const EditSymbol = styled(AiOutlineEdit)`
   height: 25px;
   width: auto;
+  text-decoration: none;
 `;
 export const DeleteSymbol = styled(AiOutlineDelete)`
   height: 25px;
   width: auto;
   cursor: pointer;
+`;
+
+export const EditLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;

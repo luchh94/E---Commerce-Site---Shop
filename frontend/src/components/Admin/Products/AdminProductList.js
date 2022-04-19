@@ -1,38 +1,56 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {
+  createProduct,
+  deleteProduct,
+} from "../../../redux/actions/productActions";
 import { listProducts } from "../../../redux/actions/productActions";
+import { PRODUCT_CREATE_RESET } from "../../../redux/constants/productConstants";
 import Loading from "../../Ui/Loading";
 import {
   Container,
-  CheckMark,
+
   EditSymbol,
   DeleteSymbol,
   AdminRow,
-  NotSymbol,
+  EditLink,
+
 } from "./AdminProductList.styles";
 
-const Users = () => {
+const AdminProductList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { success: successDelete } = useSelector((state) => state.userDelete);
+  const { success: successDelete } = useSelector((state) => state.productDelete);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const { success:createSuccess, product} = useSelector(
+    (state) => state.productCreate
+  );
   const productList = useSelector((state) => state.productList);
   const { loading, products, error } = productList;
   useEffect(() => {
+    dispatch({ type: PRODUCT_CREATE_RESET });
     if (userInfo && userInfo.isAdmin) {
       dispatch(listProducts());
     } else {
       navigate("/login");
     }
-  }, [dispatch]);
-
-  const deleteUserHandler = (id) => {
-    if (window.confirm("Are you sure?")) {
-      console.log("delete");
+    if(createSuccess){
+      navigate(`/admin/products/${product._id}/edit`)
     }
+  }, [dispatch, successDelete, createSuccess, product, navigate, userInfo]);
+
+  const deleteProductHandler = (id) => {
+    if (window.confirm("Are you sure?")) {
+      dispatch(deleteProduct(id));
+    }
+  };
+
+  const createProductHandler = (e) => {
+    e.preventDefault();
+    dispatch(createProduct());
   };
 
   return loading ? (
@@ -43,7 +61,7 @@ const Users = () => {
     <Container>
       <div>
         <h1>PRODUCTS</h1>
-        <button>+ Add Product</button>
+        <button onClick={createProductHandler}>+ Add Product</button>
       </div>
 
       <table>
@@ -69,11 +87,12 @@ const Users = () => {
                 <td>{product.category}</td>
                 <td>{product.brand}</td>
                 <AdminRow>
-                  <Link to={`/admin/product/edit/${product._id}`}>
+                  <EditLink to={`/admin/products/${product._id}/edit`}>
                     <EditSymbol />
-                  </Link>
+                  </EditLink>
+
                   <DeleteSymbol
-                    onClick={() => deleteUserHandler(product._id)}
+                    onClick={() => deleteProductHandler(product._id)}
                   />
                 </AdminRow>
               </tr>
@@ -85,4 +104,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default AdminProductList;

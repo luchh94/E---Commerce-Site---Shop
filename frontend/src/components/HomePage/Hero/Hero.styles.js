@@ -23,7 +23,6 @@ export const Text = styled.text`
   font-size: 1.3rem;
   font-family: "Source Sans 3", sans-serif;
   text-align: center;
-
 `;
 
 export const Highlight = styled.text`
@@ -43,7 +42,7 @@ export const ButtonContainer = styled.div`
   margin-top: 55px;
 `;
 
-export const ButtonAnchor = styled.a`
+export const ButtonAnchor = styled.button`
   text-decoration: none;
   background: transparent;
   border: 1px solid;
@@ -52,6 +51,11 @@ export const ButtonAnchor = styled.a`
   padding: 15px 30px;
   font-size: 14px;
   letter-spacing: 5px;
+  cursor: pointer;
+  transition-duration: 0.25s;
+  &:hover{
+    transform: scale(1.1)
+  }
 `;
 
 export const EmptyContainer = styled.div`

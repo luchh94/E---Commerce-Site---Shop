@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
+import { AiOutlineSearch } from "react-icons/ai";
 
 import ProductMenu from "./ProductMenu";
 import { Link } from "react-router-dom";
@@ -93,6 +94,7 @@ export const ContainerTwo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const Logo = styled.img`
@@ -125,8 +127,23 @@ export const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-
   background-color: #eeeeee;
+  > form {
+    width: 95%;
+    margin: 0 0;
+    display: flex;
+    justify-content: space-around;
+
+    > button {
+      border: none;
+      margin: 0 0;
+      transition-duration: 0.15s;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.3)
+      }
+    }
+  }
 `;
 
 export const SearchBtn = styled.a`
@@ -137,7 +154,7 @@ export const SearchBtn = styled.a`
   width: 30px;
 `;
 
-export const SearchIcon = styled.img`
+export const SearchIcon = styled(AiOutlineSearch)`
   margin-top: 5px;
   width: 20px;
   height: 20px;
@@ -160,8 +177,6 @@ export const ProfileAnchor = styled.div`
   text-decoration: none;
   min-width: 30px;
   margin-right: 50px;
-
-
 `;
 
 export const SignInLink = styled(Link)`
@@ -179,7 +194,11 @@ export const CartAnchor = styled(Link)`
   width: 7%;
   margin: 0px 0px;
   margin-left: 50px;
+  &:hover{
+    transform: scale(1.2)
+  }
 `;
+
 
 export const CartIcon = styled(FaShoppingCart)`
   width: 100%;

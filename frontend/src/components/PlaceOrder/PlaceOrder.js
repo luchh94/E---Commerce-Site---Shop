@@ -71,7 +71,9 @@ const PlaceOrder = () => {
 
   return (
     <Container>
+      {error && <p>{error}</p>}
       <ShippingContainer>
+      
         <h1>SHIPPING</h1>
         <div>
           <p>
