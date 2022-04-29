@@ -74,6 +74,11 @@ export const SubmitButton = styled.button`
   width: 100%;
   padding: 0.7rem 1rem;
   background-color: white;
+  transition-duration: 0.2s;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
 `;
 
 export const LowerContainer = styled.div`
