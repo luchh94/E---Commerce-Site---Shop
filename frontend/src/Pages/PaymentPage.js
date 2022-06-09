@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
 import Payment from "../components/ShippingAndPayment/Payment";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const PaymentPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <Payment />
     </Fragment>
   );

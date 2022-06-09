@@ -8,36 +8,37 @@ export const ProductHeader = styled.div`
 `;
 
 export const CameraHeader = styled.img`
-height: 40px;
-width: auto;
-
-
-`
+ width: 15%;
+  height: auto;
+`;
 
 export const UnderLine = styled.img`
-  height: 2px;
-  width: 335px;
+   height: 2px;
+  width: 20%;
   margin-top: 25px;
 `;
 
 export const Container = styled.div`
-  height: 1040px;
-  width: 1440px;
-  background-color: #F9F9F9;
+  max-height: 1040px;
+  width: 100%;
+  background-color: #f9f9f9;
 `;
 
 export const Title = styled.div`
-  height: 220px;
-  width: 1440px;
+ height: 220px;
+  max-width: 1440px;
   display: flex;
   align-items: center;
 `;
 
 export const Products = styled.div`
   height: 820px;
-  width: 1440px;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
+  @media (max-width: 550px){
+    grid-template-columns: 1fr 1fr;
 
+  }
 `;

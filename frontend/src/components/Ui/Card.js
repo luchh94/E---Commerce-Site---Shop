@@ -21,6 +21,7 @@ const Card = (props) => {
   return (
     <CardDiv onClick={navigateHandler}>
       <img src={props.image} alt="/" />
+
       <Name>{props.name}</Name>
       <Rating rating={props.rating} color="red" />
 

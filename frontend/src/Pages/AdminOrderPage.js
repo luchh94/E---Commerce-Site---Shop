@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
-import Header from "./../components/HomePage/Header/Header";
+
 import AdminOrders from "./../components/Admin/Orders/AdminOrders";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 const AdminOrderPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <AdminOrders />
     </Fragment>
   );

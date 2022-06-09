@@ -1,6 +1,6 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
-import { StarContainer, FullStars, EmptyStars } from "./Rating.styles";
+
+import { StarContainer, FullStars, EmptyStars, Star } from "./Rating.styles";
 
 const Rating = (props) => {
   const rating = props.rating;
@@ -42,12 +42,12 @@ const Rating = (props) => {
     <StarContainer>
       <FullStars>
         {starRating().map((element) => (
-          <FaStar />
+          <Star />
         ))}
       </FullStars>
       <EmptyStars>
         {[...Array(5)].map((element) => (
-          <FaStar />
+          <Star />
         ))}
       </EmptyStars>
     </StarContainer>

@@ -1,5 +1,3 @@
-import Header from "../components/HomePage/Header/Header";
-import Hero from "../components/HomePage/Hero/Hero";
 import Apple from "../components/HomePage/Products/Apple/Apple";
 import Cameras from "../components/HomePage/Products/Cameras/Camera";
 import MouseAndKeyboard from "../components/HomePage/Products/MouseAndKeyboard/MouseAndKeyboard";
@@ -9,13 +7,17 @@ import Meta from "../components/Meta";
 
 import React from "react";
 import { Fragment } from "react";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
+import Herov2 from "../components/HomePage/Hero/Herov2";
+import About from "../components/HomePage/About/About";
 
 const HomePage = () => {
   return (
     <Fragment>
       <Meta />
-      <Header />
-      <Hero />
+      <Headerv2 />
+      <Herov2 />
+      <About />
       <Apple />
       <Cameras />
       <MouseAndKeyboard />

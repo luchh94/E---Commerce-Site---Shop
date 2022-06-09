@@ -4,6 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 import ProductMenu from "./ProductMenu";
 import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 ///////////// GENERAL HEADER ///////////////
 
@@ -15,24 +16,59 @@ export const HeaderDiv = styled.header`
 `;
 
 export const Navbar = styled.nav`
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr;
-  grid-template-areas: "item1 item2 item3";
+  display: flex;
   height: 200px;
   width: 100%;
   align-items: center;
 `;
+
+export const MenuMobile = styled.div`
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  @media (min-width: 950px) {
+    display: none;
+  }
+`;
+
+export const MobileDiv1 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const MobileDiv2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const MobileDiv3 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
+export const Bars = styled(FaBars)`
+width: 30px;
+height: auto;`;
+
 
 //////////// LIST /////////////
 
 export const ContainerOne = styled.div`
   grid-area: item1;
   display: flex;
+
   list-style-type: none;
   width: 100%;
   > a {
     text-decoration-line: none;
     color: black;
+  }
+
+  @media (max-width: 950px) {
+    display: none;
   }
 `;
 
@@ -50,6 +86,10 @@ export const ListElement = styled.li`
   font-family: "Source Sans 3", sans-serif;
 
   font-size: 1.1rem;
+
+  @media (max-width: 500px) {
+    font-size: 5px;
+  }
 
   &:before {
     content: "";
@@ -95,11 +135,18 @@ export const ContainerTwo = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 export const Logo = styled.img`
   height: auto;
   width: 85%;
+  @media (max-width: 950px) {
+    width: 40%;
+  }
 `;
 
 ///////////// SEARCHBAR ///////////////
@@ -109,6 +156,10 @@ export const ContainerThree = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 export const SearchbarInput = styled.input`
@@ -120,7 +171,7 @@ export const SearchbarInput = styled.input`
   width: 300%;
 `;
 export const SearchBarContainer = styled.div`
-  height: auto;
+  height: 40px;
   width: 70%;
   padding: 3px 20px;
   border-radius: 1rem;
@@ -139,8 +190,8 @@ export const SearchBarContainer = styled.div`
       margin: 0 0;
       transition-duration: 0.15s;
       cursor: pointer;
-      &:hover{
-        transform: scale(1.3)
+      &:hover {
+        transform: scale(1.3);
       }
     }
   }
@@ -194,11 +245,14 @@ export const CartAnchor = styled(Link)`
   width: 7%;
   margin: 0px 0px;
   margin-left: 50px;
-  &:hover{
-    transform: scale(1.2)
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 950px) {
+    width: 25px;
   }
 `;
-
 
 export const CartIcon = styled(FaShoppingCart)`
   width: 100%;

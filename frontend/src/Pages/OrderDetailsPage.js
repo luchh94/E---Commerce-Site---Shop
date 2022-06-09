@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./../components/HomePage/Header/Header";
+
 import OrderDetails from "../components/OrderDetails/OrderDetails";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const OrderDetailsPage = () => {
   return (
     <>
-      <Header />
+      <Headerv2 />
       <OrderDetails />
     </>
   );

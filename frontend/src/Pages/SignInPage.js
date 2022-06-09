@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
 
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 import SignInComponents from "../components/SignIn/SignInComponents";
 const SignInPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <SignInComponents />
     </Fragment>
   );

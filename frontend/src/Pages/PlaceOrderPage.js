@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
 import PlaceOrder from "../components/PlaceOrder/PlaceOrder";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 const PlaceOrderPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <PlaceOrder />
     </Fragment>
   );

@@ -1,14 +1,15 @@
 import { Fragment } from "react";
 
 import CartPageComponents from "../components/Cart/CartPageComponents";
-import Header from "../components/HomePage/Header/Header";
+
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 import React from "react";
 
 const CartPage = (props) => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <CartPageComponents />
     </Fragment>
   );

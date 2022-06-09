@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
 import Profile from "../components/Profile/Profile";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const ProfilePage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <Profile />
     </Fragment>
   );

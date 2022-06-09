@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
-  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  justify-content: space-around;
+  width: 100%;
   max-height: 1500px;
 `;
 
@@ -13,7 +12,7 @@ export const ContactBox = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 720px;
+  max-width: 720px;
   height: 600px;
 
   &:before {
@@ -75,56 +74,59 @@ export const SubmitButton = styled.button`
   padding: 0.7rem 1rem;
   background-color: white;
   transition-duration: 0.2s;
-  &:hover{
+  &:hover {
     background-color: black;
     color: white;
   }
 `;
 
 export const LowerContainer = styled.div`
-  width: 60%;
+  background-image: url("https://i.ibb.co/Z2ZhSkW/backgroundmap.png");
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 40em;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
+  position: relative;
+
   > a {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20em;
+    height: 20em;
     margin: 0 0;
+    border: 1px solid white;
+
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
       rgba(17, 17, 26, 0.1) 0px 0px 8px;
     text-decoration: none;
-  }
-`;
-
-export const MapContainer = styled.div`
-  width: 50%;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const AdressContainer = styled.div`
-  width: 100%;
-  height: 400px;
-  display: flex;
-  font-weight: normal;
-  flex-direction: column;
-  letter-spacing: 4px;
-  justify-content: center;
-  align-items: center;
-
-  transition: background-color 0.4s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #aa99aa;
-    > h3 {
-      color: white;
-    }
-  }
-  > h3 {
-    padding: 22px 10px;
-    transition: color 0.4s;
-    font-family: "Source Sans 3", sans-serif;
-    color: black;
     font-weight: normal;
+    letter-spacing: 4px;
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: white;
+      > h3 {
+        color: black;
+      }
+    }
+    > h3 {
+      padding: 22px 10px;
+      transition: color 0.4s;
+      font-family: "Source Sans 3", sans-serif;
+      color: white;
+      font-weight: normal;
+    }
+
+    @media (max-width: 700px){
+      width: 15em;
+    height: 15em;
+
+    }
   }
 `;

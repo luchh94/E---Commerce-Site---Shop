@@ -19,11 +19,11 @@ const ProfileMenu = () => {
   useEffect(() => {}, []);
 
   return (
-    <Menu as="div" class="relative inline-block text-left w-40">
+    <Menu as="div" class="relative inline-block text-left w-[60%] ml-0 mr-0 z-30 cursor-pointer">
       <div>
         <Menu.Button
           type="button"
-          class="inline-flex overflow-hidden justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          class="inline-flex overflow-hidden justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"

@@ -1,11 +1,12 @@
 import { React, Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
 import Register from "../components/Register/Register";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const RegisterPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <Register />
     </Fragment>
   );

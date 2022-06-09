@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 export const StarContainer = styled.div`
   margin: 0 0;
   max-height: 50px;
-  width: 180px;
+  width: 15em;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ProductHeader = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,9 +10,7 @@ export const ProductHeader = styled.div`
 export const AppleHeader = styled.img`
   width: 50%;
   height: auto;
-
-
-`
+`;
 
 export const UnderLine = styled.img`
   height: 2px;
@@ -28,14 +25,18 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   height: 220px;
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   align-items: center;
 `;
 
 export const Products = styled.div`
   height: 820px;
-  width: 1440px;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;

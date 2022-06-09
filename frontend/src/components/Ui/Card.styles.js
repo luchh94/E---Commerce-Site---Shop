@@ -3,17 +3,18 @@ import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const ProductLink = styled(Link)`
-height: 0px;
-width: 0px;
+  height: 0px;
+  width: 0px;
 `;
 export const CardDiv = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: 327px;
-  width: 50%;
+  height: 327px;
+  width: 240px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding-top: 20px;
-  justify-content: space-between;
+  justify-content: space-around;
+
   transition-duration: 0.2s;
   cursor: pointer;
   &:hover {
@@ -22,8 +23,27 @@ export const CardDiv = styled.div`
 
   img {
     margin-bottom: 11px;
-    height: 40%;
-    width: auto;
+    max-width: 150px;
+
+    @media (max-width: 950px) {
+      max-width: 80px;
+      max-height: 250px;
+    }
+
+    @media (max-width: 550px) {
+      max-width: 60px;
+      max-height: 200px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    width: 170px;
+    height: 250px;
+  }
+
+  @media (max-width: 550px) {
+    width: 150px;
+    height: 220px;
   }
 `;
 
@@ -65,11 +85,15 @@ export const Name = styled.div`
   margin-bottom: 20px;
   display: flex;
   width: 100%;
-  height: 56.25px;
+  height: 10.25px;
   justify-content: center;
 
   font-size: 16px;
   font-family: "Sintony", sans-serif;
+
+  @media (max-width: 550px) {
+    font-size: 12px;
+  }
 `;
 
 export const StarContainer = styled.div`

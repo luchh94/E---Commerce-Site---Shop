@@ -8,11 +8,9 @@ import {
   InputEmail,
   InputPhone,
   TextArea,
-  MapContainer,
   SubmitButton,
   AdressContainer,
   LowerContainer,
-
 } from "./ContactUs.styles";
 import ReactMap from "./ReactMap";
 
@@ -28,18 +26,15 @@ const ContactUs = () => {
         <SubmitButton>Submit</SubmitButton>
       </ContactForm>
       <LowerContainer>
-        <MapContainer>
-          <ReactMap />
-        </MapContainer>
-        <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/eH2N8fondYuNq3ko9">
-
-          <AdressContainer>
-            <h3>Germany</h3>
-            <h3>Alter Wall 44</h3>
-            <h3>22529</h3>
-          </AdressContainer>
-          </a>
-
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://goo.gl/maps/eH2N8fondYuNq3ko9"
+        >
+          <h3>Germany</h3>
+          <h3>Alter Wall 44</h3>
+          <h3>22529</h3>
+        </a>
       </LowerContainer>
     </Container>
   );

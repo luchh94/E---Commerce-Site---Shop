@@ -1,12 +1,13 @@
 import React from "react";
 import { Fragment } from "react";
-import Header from "./../components/HomePage/Header/Header";
+
 import AdminProductList from "./../components/Admin/Products/AdminProductList";
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const ProductEditPage = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <AdminProductList />
     </Fragment>
   );

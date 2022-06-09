@@ -1,29 +1,38 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   width: 80%;
-  height: 1500px;
+  height: 200em;
   display: flex;
   flex-direction: column;
 `;
 
 export const ProductContainer = styled.div`
   width: 100%;
-  height: 750px;
-  display: flex; ;
+  height: 50em;
+  display: flex;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: 100em;
+  }
 `;
 
 export const LeftContainer = styled.div`
   width: 50%;
 
-  height: 750px;
+  height: 50em;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 25em;
+  }
+
   > img {
-    max-width: 400px;
+    max-width: 20em;
     height: auto;
   }
 `;
@@ -31,25 +40,30 @@ export const LeftContainer = styled.div`
 export const RightContainer = styled.div`
   width: 50%;
 
-  height: 750px;
+  height: 50em;
 
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 40em;
+  }
 `;
 
 export const CatAndContent = styled.div`
   display: flex;
   margin: 0 0;
-  margin-left: 100px;
+  margin-left: 6em;
   flex-direction: column;
 
   > button {
     margin: 0 0;
-    width: 130px;
-    height: 40px;
+    width: 10em;
+    height: 3em;
     color: white;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -61,7 +75,7 @@ export const CatAndContent = styled.div`
   }
 
   > p {
-    font-size: 45px;
+    font-size: 3em;
     align-items: flex-start;
     font-family: "Source Sans 3", sans-serif;
     font-weight: normal;
@@ -69,69 +83,75 @@ export const CatAndContent = styled.div`
 `;
 export const PriceAndRating = styled.div`
   width: 100%;
-  margin-top: 50px;
+  margin-top: 2em;
   display: flex;
   margin: 0 0;
 
   margin-top: 30px;
 
   > p {
-    margin-left: 100px;
-    font-size: 50px;
+    margin-left: 2em;
+    font-size: 3em;
     align-items: flex-start;
+    text-align: center;
+
+    @media (max-width: 1100px) {
+      font-size: 2.5em;
+    }
   }
 `;
 
 export const Description = styled.p`
   margin: 0 0;
-  font-size: 16px;
-  margin-left: 100px;
-  margin-right: 120px;
-  margin-top: 70px;
+  font-size: 1rem;
+  margin-left: 6em;
+  margin-right: 1.5em;
+  margin-top: 2em;
   opacity: 50%;
   font-family: "Source Sans 3", sans-serif;
+  text-align: left;
 `;
 
 export const RatingContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 10px;
-  margin-left: 57px;
+  margin-top: 0.5em;
+  margin-left: 0.7em;
   > p {
     margin: 0 0;
   }
 `;
 
 export const CartButton = styled.button`
-  height: 70px;
-  width: 180px;
+  height: 4em;
+  width: 10em;
   margin: 0 0;
-  margin-left: 100px;
-  margin-top: 70px;
+  margin-left: 7em;
+  margin-top: 5em;
   font-weight: bold;
 `;
 
 export const InStock = styled.div`
   display: flex;
-  width: 300px;
-  height: 200;
+  width: 15em;
+
   margin: 0 0;
-  margin-left: 100px;
-  margin-top: 30px;
+  margin-left: 5em;
+  margin-top: 3em;
   align-items: center;
   justify-content: center;
   > p {
-    margin-left: 10px;
-    font-size: 25px;
+    margin-left: 0.1em;
+    font-size: 1.5em;
   }
   > form {
-    width: 200px;
-    height: 200px;
+    width: 20em;
+    height: 20em;
   }
   > select {
-    width: 60px;
-    height: 40px;
+    width: 5em;
+    height: 2em;
   }
 `;
 

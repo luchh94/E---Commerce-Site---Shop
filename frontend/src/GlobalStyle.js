@@ -10,6 +10,12 @@ const GlobalStyle = createGlobalStyle`
     
 
   }
+
+  a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

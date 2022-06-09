@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaStar } from "react-icons/fa";
 
 export const StarContainer = styled.div`
   width: 35%;
@@ -16,4 +17,11 @@ export const FullStars = styled.div`
 export const EmptyStars = styled.div`
   width: 100%;
   margin-left: -100%;
+`;
+
+export const Star = styled(FaStar)`
+  width: 16px;
+  @media (max-width: 950px) {
+    width: 10px;
+  }
 `;

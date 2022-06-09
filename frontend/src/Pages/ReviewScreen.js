@@ -1,11 +1,12 @@
 import React from "react";
 import { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const ReviewScreen = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
     </Fragment>
   );
 };

@@ -49,6 +49,10 @@ const DetailPage = (props) => {
     }
   }, [dispatch, props.id, success]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const arrayKeys = [...Array(product.countInStock).keys()];
 
   const addToCartHandler = () => {

@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useRef } from "react";
 
 import logo from "./logo.jpg";
+import logosmall from "./logosmall.png";
 
 import ProductMenu from "./ProductMenu";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router-dom";
 import MyDropdown from "./ProfileMenu";
-
 
 import {
   ContainerOne,
@@ -26,6 +26,11 @@ import {
   CartIcon,
   LinkElement,
   SignInLink,
+  MenuMobile,
+  Bars,
+  MobileDiv1,
+  MobileDiv2,
+  MobileDiv3,
 } from "./Header.styles.js";
 
 const Header = () => {
@@ -66,9 +71,9 @@ const Header = () => {
         {/* Container One - List  */}
 
         <ContainerOne>
-          <LinkElement href="/">
+          <HashLink to="/#about" spy={true} smooth={true}>
             <ListElement>about</ListElement>
-          </LinkElement>
+          </HashLink>
           <LinkElement href="/" onClick={menuHandler}>
             <ListElement>products</ListElement>
             {isOpen && <ProductMenu ref={menuRef} />}
@@ -78,6 +83,28 @@ const Header = () => {
             <ListElement>contact us</ListElement>
           </HashLink>
         </ContainerOne>
+
+        <MenuMobile>
+          <MobileDiv1>
+            <CartAnchor to="/cart">
+              <CartIcon />
+            </CartAnchor>
+
+            <Bars />
+          </MobileDiv1>
+          <MobileDiv2>
+            <Logo src={logosmall} />
+          </MobileDiv2>
+          <MobileDiv3>
+            <ProfileAnchor>
+              {userLoggedIn ? (
+                <MyDropdown />
+              ) : (
+                <SignInLink to="/signin">REGISTER / LOGIN</SignInLink>
+              )}
+            </ProfileAnchor>
+          </MobileDiv3>
+        </MenuMobile>
 
         {/* Container Two - Logo */}
 

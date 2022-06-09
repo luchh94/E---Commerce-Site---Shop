@@ -1,12 +1,13 @@
 import React from "react";
 import { Fragment } from "react";
-import Header from "../components/HomePage/Header/Header";
+
 import User from './../components/Admin/Users/Users'
+import Headerv2 from "../components/HomePage/Header/Headerv2";
 
 const AdminUsersScreen = () => {
   return (
     <Fragment>
-      <Header />
+      <Headerv2 />
       <User/>
     </Fragment>
   );
