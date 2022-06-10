@@ -2,6 +2,9 @@
   "name": "e---commerce-site---shop",
   "version": "1.0.0",
   "description": "MERN - Shop",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "server.js",
   "type": "module",
   "scripts": {
