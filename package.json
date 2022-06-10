@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "MERN - Shop",
   "engines": {
-    "node": "16.x"
+    "node": "16.x",
+    "npm": "8.5.5"
   },
   "main": "server.js",
   "type": "module",
