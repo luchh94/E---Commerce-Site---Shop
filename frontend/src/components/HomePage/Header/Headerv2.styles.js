@@ -83,6 +83,13 @@ export const List = styled.ul`
     }
   }
 
+  > div {
+    transition-duration: 300ms;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
   > a {
     transition-duration: 300ms;
 

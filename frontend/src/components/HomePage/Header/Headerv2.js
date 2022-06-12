@@ -47,8 +47,12 @@ const Headerv2 = () => {
   return (
     <Container>
       <DesktopContainer>
-        <div>
-          <img src={Logo} />
+        <div
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <img src={Logo} alt="logo" />
         </div>
 
         <div>

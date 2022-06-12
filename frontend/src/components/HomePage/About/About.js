@@ -55,17 +55,18 @@ const About = () => {
         <TextDiv showDiv={showDiv}>
           <div>
             <p>
-              <span>Tech For Today</span> is a small Buisness based in Hamburg -
-              Germany. We provide new Technoligy for a fair price to make it
-              accesable for every Person
+              <span>Tech For Today</span> is a local business based in Hamburg,
+              Germany. We provide new technology for a fair price to make it
+              accessible for everyone.
             </p>
           </div>
-          <div>How we achieve that?</div>
+          <div>How do we achieve that?</div>
           <div>
             <p>
-              We buy products that would have gotten sorted out because of
-              Package Problems. We buy it for a lower price so we can sell it to
-              customers who cannot pay that much.
+              We purcahse products that are taken out of stock because of
+              packaging issues and can therefore buy it for a significantly
+              lower price and resell it to customers who are looking for
+              affordable options.
             </p>
           </div>
         </TextDiv>
