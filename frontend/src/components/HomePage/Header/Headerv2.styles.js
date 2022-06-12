@@ -84,9 +84,11 @@ export const List = styled.ul`
   }
 
   > div {
-    transition-duration: 300ms;
-    &:hover {
-      transform: scale(1.2);
+    > li {
+      transition-duration: 300ms;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 

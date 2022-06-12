@@ -70,7 +70,7 @@ const Headerv2 = () => {
               }}
               data-dropdown
             >
-              Products
+              <li>Products</li>
               <DesktopProductList
                 hidden={openDesktopProductList}
                 active={openDesktopProductList}
